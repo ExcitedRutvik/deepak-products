@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Deepak Products – Sheet Metal &amp; Brass Components Manufacturer, Jamnagar</title>
+  <meta name="description" content="Established 1985. ISO 9001:2015 certified manufacturer of sheet metal stamping, brass turned components, MCB parts &amp; modular switch parts. Jamnagar, Gujarat, India." />
+  <meta name="keywords" content="sheet metal components, brass turned components, MCB parts, modular socket parts, crimping lugs, brass hex nuts, Jamnagar manufacturer, Gujarat precision components, brass electrical components, deep draw products" />
+  <meta name="author" content="Deepak Products" />
+  <link rel="canonical" href="https://www.deepakproducts.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Deepak Products – Sheet Metal &amp; Brass Components Manufacturer, Jamnagar" />
+  <meta property="og:description" content="Established 1985. ISO 9001:2015 certified manufacturer of sheet metal stamping, brass turned components, MCB parts &amp; modular switch parts. Jamnagar, Gujarat." />
+  <meta property="og:url" content="https://www.deepakproducts.com/" />
+  <meta property="og:image" content="https://www.deepakproducts.com/assets/img/about/04.jpg" />
+  <meta property="og:site_name" content="Deepak Products" />
+
+  <!-- Geo Tags (Local SEO) -->
+  <meta name="geo.region" content="IN-GJ" />
+  <meta name="geo.placename" content="Jamnagar, Gujarat, India" />
+  <meta name="geo.position" content="22.4707;70.0577" />
+  <meta name="ICBM" content="22.4707, 70.0577" />
+
+  <!-- Google Fonts: Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Lenis smooth scroll CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: '#4AAB3D' },
+          fontFamily: { neue: ['Space Grotesk', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { --gc: #4AAB3D; --gm: 2vw; --gg: 2vw; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 20px; line-height: 1.3; background: #000; color: #fff; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif; background: #000; overflow-x: hidden; cursor: none; }
+
+    /* Lenis */
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-stopped { overflow: hidden; }
+
+    /* Cursor */
+    #cur { position: fixed; width: 8px; height: 8px; background: #fff; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+    #cur-f { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.08s ease, border-color 0.3s ease; }
+    body:has(a:hover) #cur-f, body:has(button:hover) #cur-f { transform: translate(-50%,-50%) scale(2); border-color: var(--gc); }
+    body:has(a:hover) #cur, body:has(button:hover) #cur { background: var(--gc); }
+
+    /* Preloader */
+    #preloader { position: fixed; inset: 0; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    #pre-bar { position: absolute; bottom: 0; left: 0; height: 2px; background: var(--gc); width: 0; }
+    #pre-label { position: absolute; bottom: var(--gm); left: var(--gm); font-size: 0.6rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.3); text-transform: uppercase; }
+
+    /* Nav */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gm); border-bottom: 1px solid rgba(255,255,255,0.07); backdrop-filter: blur(8px); background: rgba(0,0,0,0.7); }
+    .nl { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.3s ease; }
+    .nl:hover { color: #fff; }
+
+    /* Nav dropdown (Products mega-menu) */
+    .nav-item { position: relative; }
+    .nav-dd {
+      position: absolute; top: calc(100% + 16px); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(5,5,5,0.98); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      width: 580px; padding: 1.5rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0 2rem;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
+      z-index: 200;
+    }
+    .nav-item:hover .nav-dd { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .nav-dd-section { font-size: 0.48rem; letter-spacing: 0.22em; color: var(--gc); text-transform: uppercase; padding-bottom: 0.5rem; margin-bottom: 0.25rem; margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .nav-dd-section:first-child { border-top: none; margin-top: 0; }
+    .nav-dd-link { display: block; padding: 0.32rem 0; font-size: 0.57rem; letter-spacing: 0.11em; text-transform: uppercase; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.2s ease, padding-left 0.2s ease; white-space: nowrap; }
+    .nav-dd-link:hover { color: #fff; padding-left: 0.4rem; }
+
+    /* Red / green line */
+    .rl { height: 1px; background: var(--gc); }
+
+    /* Section label */
+    .slabel { font-size: 0.55rem; letter-spacing: 0.22em; color: var(--gc); text-transform: uppercase; }
+
+    /* Hero */
+    #hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 var(--gm) 6vh; overflow: hidden; }
+    .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: repeating-linear-gradient(90deg, rgba(74,171,61,0.04) 0, rgba(74,171,61,0.04) 1px, transparent 1px, transparent calc(100%/8)); }
+
+    /* Word mask reveal */
+    .mask { overflow: hidden; display: inline-block; vertical-align: bottom; }
+    .mask > span { display: inline-block; transform: translateY(110%); }
+
+    /* Word rotator slot */
+    #wslot { display: inline-block; overflow: hidden; vertical-align: bottom; color: var(--gc); }
+    #wslot .wd { display: block; transform: translateY(0); }
+
+    /* Marquee */
+    @keyframes mq { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .mq-track { display: flex; gap: 3rem; align-items: center; white-space: nowrap; animation: mq 28s linear infinite; }
+
+    /* Scroll pill */
+    @keyframes spill { 0% { transform: translateY(-100%); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(100%); opacity: 0; } }
+    .spill { animation: spill 1.8s ease-in-out infinite; }
+
+    /* Product cards */
+    .prod-card { display: block; text-decoration: none; color: inherit; }
+    .prod-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .prod-card:hover .prod-img { transform: scale(1.06); }
+    .prod-ov { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%); opacity: 0; transition: opacity 0.4s ease; }
+    .prod-card:hover .prod-ov { opacity: 1; }
+
+    /* Industry card */
+    .ind-card { position: relative; overflow: hidden; aspect-ratio: 3/4; }
+    .ind-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .ind-card:hover img { transform: scale(1.06); }
+    .ind-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.2rem 1rem; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 100%); }
+
+    /* Value pill */
+    .vpill { border: 1px solid rgba(255,255,255,0.12); transition: border-color 0.3s ease, background 0.3s ease; padding: 1.25rem 1.5rem; }
+    .vpill:hover { border-color: var(--gc); background: rgba(74,171,61,0.04); }
+
+    /* Process step */
+    .pstep { border-top: 1px solid rgba(255,255,255,0.12); padding: 2rem 0; }
+
+    /* Counter */
+    .cval { font-size: clamp(2.8rem,7vw,7rem); font-weight: 300; line-height: 1; letter-spacing: -0.02em; }
+
+    /* Footer link */
+    .flink { font-size: 0.7rem; color: rgba(255,255,255,0.45); text-decoration: none; display: block; transition: color 0.3s ease; margin-bottom: 0.4rem; }
+    .flink:hover { color: #fff; }
+
+    /* Mobile menu */
+    #mmenu { position: fixed; inset: 0; background: #000; z-index: 999; display: flex; flex-direction: column; justify-content: flex-end; padding: 6vw 6vw 3rem; transform: translateX(100%); transition: transform 0.55s cubic-bezier(0.76,0,0.24,1); }
+    #mmenu.open { transform: translateX(0); }
+
+    /* WhatsApp */
+    #wa { position: fixed; bottom: 2rem; right: 2rem; z-index: 500; width: 3rem; height: 3rem; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; box-shadow: 0 4px 20px rgba(37,211,102,0.3); }
+    #wa:hover { transform: scale(1.1); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mask > span { transform: none; }
+      .mq-track { animation: none; }
+      .spill { animation: none; }
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Deepak Products",
+      "url": "https://www.deepakproducts.com",
+      "logo": "https://www.deepakproducts.com/assets/img/logo.png",
+      "foundingDate": "1985",
+      "founder": { "@type": "Person", "name": "Rasikbhai K. Bhut" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No 4219, Road–F, Shree Lal Bapu Road, G.I.D.C., Phase–III, Dared",
+        "addressLocality": "Jamnagar",
+        "addressRegion": "Gujarat",
+        "postalCode": "361005",
+        "addressCountry": "IN"
+      },
+      "contactPoint": [
+        { "@type": "ContactPoint", "telephone": "+91-96627-13385", "contactType": "sales", "areaServed": "IN" },
+        { "@type": "ContactPoint", "telephone": "+91-88667-51091", "contactType": "customer support", "areaServed": "IN" }
+      ],
+      "email": "sales@deepakproducts.com",
+      "sameAs": []
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Deepak Products",
+      "image": "https://www.deepakproducts.com/assets/img/about/04.jpg",
+      "telephone": "+91-96627-13385",
+      "email": "sales@deepakproducts.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No 4219, Road–F, Shree Lal Bapu Road, G.I.D.C., Phase–III, Dared",
+        "addressLocality": "Jamnagar",
+        "addressRegion": "Gujarat",
+        "postalCode": "361005",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Saturday"], "opens": "09:00", "closes": "19:30" }
+      ],
+      "priceRange": "$$",
+      "hasMap": "https://maps.google.com/?q=Plot+4219+GIDC+Phase+III+Jamnagar+Gujarat"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.deepakproducts.com/",
+      "name": "Deepak Products",
+      "description": "Manufacturer of precision sheet metal and brass components since 1985, Jamnagar, Gujarat."
+    }
+  ]
+  </script>
+</head>
+
+<body class="bg-black text-white font-neue">
+
+  <!-- Custom Cursor -->
+  <div id="cur"></div>
+  <div id="cur-f"></div>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="pre-word" style="font-size: clamp(1.2rem,3.5vw,2.8rem); font-weight:300; letter-spacing:0.06em; overflow:hidden;">
+      <span id="pre-text">DEEPAK PRODUCTS</span>
+    </div>
+    <span id="pre-label">Est. 1985 — Jamnagar, India</span>
+    <div id="pre-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="nav" aria-label="Main navigation">
+    <a href="index.html" class="text-white text-xs tracking-widest uppercase font-medium" style="letter-spacing:0.18em;" aria-label="Deepak Products Home">Deepak Products</a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="about_us.html" class="nl">About Us</a>
+
+      <!-- Products mega-dropdown -->
+      <div class="nav-item">
+        <a href="products.html" class="nl" style="display:flex;align-items:center;gap:5px;">
+          Products
+          <svg style="width:7px;height:7px;fill:rgba(255,255,255,0.4);flex-shrink:0;" viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg>
+        </a>
+        <div class="nav-dd" role="menu" aria-label="Products submenu">
+          <!-- Column 1: Sheet Metal -->
+          <div>
+            <p class="nav-dd-section">Sheet Metal</p>
+            <a href="sheet_metal_components.html" class="nav-dd-link">Sheet Metal Components</a>
+            <a href="mcb_parts.html" class="nav-dd-link">MCB Parts</a>
+            <a href="brass_electrical_components.html" class="nav-dd-link">Brass Electrical Components</a>
+            <a href="mortise_lock_parts.html" class="nav-dd-link">Mortise Lock Parts</a>
+            <a href="deep_draw_products.html" class="nav-dd-link">Deep Draw Products</a>
+            <a href="brass_and_ms_washers.html" class="nav-dd-link">Brass &amp; MS Washers</a>
+            <a href="brass_fuse_components.html" class="nav-dd-link">Brass Fuse Components</a>
+          </div>
+          <!-- Column 2: Modular + Other -->
+          <div>
+            <p class="nav-dd-section">Modular Socket / Switch</p>
+            <a href="modular_socket_switch_parts.html" class="nav-dd-link">Modular Socket / Switch Parts</a>
+            <a href="modular_socket_parts.html" class="nav-dd-link">Modular Socket Parts</a>
+            <a href="modular_switch_parts.html" class="nav-dd-link">Modular Switch Parts</a>
+            <a href="modular_pins.html" class="nav-dd-link">Modular Pins</a>
+            <a href="brass_terminals.html" class="nav-dd-link">Brass Terminals</a>
+            <p class="nav-dd-section">Other Products</p>
+            <a href="crimping_lugs.html" class="nav-dd-link">Crimping Lugs</a>
+            <a href="brass_earth_tag.html" class="nav-dd-link">Brass Earth Tag</a>
+            <a href="brass_turned_components.html" class="nav-dd-link">Brass Turned Components</a>
+            <a href="brass_hex_nuts_and_bolts.html" class="nav-dd-link">Brass Hex Nuts &amp; Bolts</a>
+            <a href="brass_moulding_inserts.html" class="nav-dd-link">Brass Moulding Inserts</a>
+            <a href="customized_components.html" class="nav-dd-link">Customized Components</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="quality.html" class="nl">Quality</a>
+      <a href="infrastructure.html" class="nl">Infrastructure</a>
+      <a href="contact_us.html" class="nl">Contact Us</a>
+    </div>
+
+    <div class="hidden md:flex items-center gap-6">
+      <span id="navtime" class="nl" style="color:rgba(255,255,255,0.25);">IST 00:00</span>
+      <a href="contact_us.html"
+         class="text-xs tracking-widest uppercase border border-white/25 px-4 py-2
+                hover:bg-white hover:text-black transition-colors duration-300"
+         style="letter-spacing:0.14em;">
+        Get Quote
+      </a>
+    </div>
+
+    <button id="mbtn" class="md:hidden flex flex-col gap-[5px]" aria-label="Open menu">
+      <span class="w-6 h-px bg-white block transition-all duration-300" id="mline1"></span>
+      <span class="w-4 h-px bg-white block transition-all duration-300" id="mline2"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mmenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="space-y-5 mb-12">
+      <a href="index.html"         class="block text-4xl font-light mm-link" style="line-height:1.1;">Home</a>
+      <a href="about_us.html"      class="block text-4xl font-light mm-link" style="line-height:1.1;">About Us</a>
+      <a href="products.html"      class="block text-4xl font-light mm-link" style="line-height:1.1;">Products</a>
+      <a href="quality.html"       class="block text-4xl font-light mm-link" style="line-height:1.1;">Quality</a>
+      <a href="infrastructure.html" class="block text-4xl font-light mm-link" style="line-height:1.1;">Infrastructure</a>
+      <a href="contact_us.html"    class="block text-4xl font-light mm-link" style="line-height:1.1;">Contact Us</a>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex justify-between items-end">
+      <div>
+        <p class="slabel mb-2">Phone</p>
+        <a href="tel:+919662713385" class="text-sm text-white/70">+91 96627 13385</a>
+      </div>
+      <div class="text-right">
+        <p class="slabel mb-2">Email</p>
+        <a href="mailto:sales@deepakproducts.com" class="text-sm text-white/70">sales@deepakproducts.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <canvas id="cnc-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0.75;" aria-hidden="true"></canvas>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.45) 100%);pointer-events:none;z-index:1;" aria-hidden="true"></div>
+
+    <div class="relative" style="z-index:2;">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="slabel">01 / Est. 1985</span>
+        <div class="rl w-10" aria-hidden="true"></div>
+        <span class="slabel">Sheet Metal Experts</span>
+      </div>
+
+      <h1 id="hero-heading" style="font-size:clamp(2.8rem,9vw,9.5rem); font-weight:300; line-height:0.94; letter-spacing:-0.025em;" class="mb-8">
+        <div><span class="mask"><span>Innovative</span></span></div>
+        <div><span class="mask"><span>Products</span></span></div>
+        <div class="flex flex-wrap items-baseline gap-x-4">
+          <span class="mask"><span>With</span></span>
+          <span id="wslot" aria-live="polite"><span class="wd" style="color:var(--gc);">High Quality.</span></span>
+        </div>
+      </h1>
+
+      <div id="hero-bottom" class="flex items-end justify-between flex-wrap gap-6 pr-16" style="opacity:0; transform:translateY(20px);">
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:1.8; max-width:22rem;">
+          One stop solution for sheet metal &amp; brass components.<br/>
+          Customized solutions for various applications.
+        </p>
+        <div class="flex items-center gap-6 flex-wrap">
+          <a href="products.html"
+             class="text-xs tracking-widest uppercase border border-white px-8 py-4
+                    hover:bg-white hover:text-black transition-colors duration-300"
+             style="letter-spacing:0.14em;">
+            Explore Products
+          </a>
+          <a href="about_us.html" class="text-xs tracking-widest uppercase text-white/40 hover:text-white transition-colors duration-300" style="letter-spacing:0.14em;">
+            Our Story →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute right-[2vw] bottom-[6vh] flex flex-col items-center gap-3" style="z-index:2;" aria-hidden="true">
+      <div class="w-px h-14 bg-white/15 relative overflow-hidden">
+        <div class="spill w-full h-1/2 bg-white/50 absolute top-0"></div>
+      </div>
+      <span style="font-size:0.5rem; letter-spacing:0.3em; color:rgba(255,255,255,0.25); text-transform:uppercase; writing-mode:vertical-rl;">Scroll</span>
+    </div>
+  </section>
+
+  <!-- Green divider -->
+  <div class="rl mx-[2vw]" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════ MARQUEE ═══════════════════════════════ -->
+  <div class="overflow-hidden py-4 border-b border-white/8" aria-hidden="true">
+    <div class="mq-track">
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">Sheet Metal Components</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">Brass Turned Components</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">ISO 9001:2015 Certified</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">650+ Finished Products</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">10+ Countries Served</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">700+ Satisfied Clients</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">Sheet Metal Components</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">Brass Turned Components</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">ISO 9001:2015 Certified</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">650+ Finished Products</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">10+ Countries Served</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">700+ Satisfied Clients</span>
+      <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+  <section id="about" class="px-[2vw] py-24 md:py-40" aria-labelledby="about-heading">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[5vw] items-start">
+
+      <div class="relative overflow-hidden" style="aspect-ratio:3/4;">
+        <img id="about-img"
+             src="https://www.deepakproducts.com/assets/img/about/04.jpg"
+             alt="Deepak Products precision manufacturing facility in Jamnagar, Gujarat"
+             width="600" height="800"
+             loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;transform:scale(1.08);" />
+        <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4AAB3D]" aria-hidden="true"></div>
+        <div class="absolute top-5 left-5 border border-white/15 bg-black/75 backdrop-blur px-4 py-3">
+          <p class="slabel">Est. 1985</p>
+          <p style="font-size:0.7rem; color:#fff; margin-top:4px; letter-spacing:0.06em;">35+ Years</p>
+        </div>
+      </div>
+
+      <div class="md:pt-16">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="slabel">02 / About</span>
+          <div class="rl w-10" aria-hidden="true"></div>
+        </div>
+
+        <h2 id="about-heading" style="font-size:clamp(2rem,5vw,5rem); font-weight:300; line-height:1; letter-spacing:-0.02em;" class="mb-10">
+          Welcome To<br/>
+          <em style="color:rgba(255,255,255,0.3); font-style:italic;">Deepak</em><br/>
+          Products.
+        </h2>
+
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.85;" class="mb-5">
+          Experience &amp; expertise in the field of Sheet Metal Components. Established in the year 1985, under the leadership of Mr. Rasikbhai K. Bhut, we have diverse rich experience across Sheet Metal Stamping Components industry.
+        </p>
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.85;" class="mb-10">
+          We are a renowned sheet metal expert and creative entrepreneur. ISO 9001:2015 Certified company with D&amp;B D-UN-S number 65-081-4762 and NSIC SE3B credit rating.
+        </p>
+
+        <div class="mb-10 space-y-0">
+          <div class="flex items-center gap-4 border-t border-white/10 py-4">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--gc);flex-shrink:0;" aria-hidden="true"></div>
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.6); letter-spacing:0.05em;">Manufacturing of Customized Products</span>
+          </div>
+          <div class="flex items-center gap-4 border-t border-white/10 py-4">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--gc);flex-shrink:0;" aria-hidden="true"></div>
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.6); letter-spacing:0.05em;">Competent &amp; Experienced Workforce</span>
+          </div>
+        </div>
+
+        <a href="about_us.html"
+           class="inline-flex items-center gap-3 text-xs tracking-widest uppercase
+                  border border-white/30 px-8 py-4
+                  hover:bg-white hover:text-black transition-colors duration-300"
+           style="letter-spacing:0.14em;">
+          Read More <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ STATS ═══════════════════════════════ -->
+  <section id="stats" class="px-[2vw] py-14 md:py-20 border-t border-b border-white/10" aria-labelledby="stats-heading">
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="slabel">03 / Achievements</span>
+        <div class="rl w-10" aria-hidden="true"></div>
+      </div>
+      <p id="stats-heading" style="font-size:0.7rem; color:rgba(255,255,255,0.3); letter-spacing:0.15em; text-transform:uppercase;">Numbers Speaks Our Past &amp; Future</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
+      <div class="stat-item border-r border-white/10 pr-8 pb-8 md:pb-0">
+        <p class="cval" data-target="650">0</p>
+        <p style="color:var(--gc); font-size:1.8rem; font-weight:300; line-height:1;" aria-hidden="true">+</p>
+        <p style="font-size:0.55rem; color:rgba(255,255,255,0.35); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Finished Products</p>
+      </div>
+      <div class="stat-item border-r border-white/10 px-8 pb-8 md:pb-0">
+        <p class="cval" data-target="55">0</p>
+        <p style="color:var(--gc); font-size:1.8rem; font-weight:300; line-height:1;" aria-hidden="true">+</p>
+        <p style="font-size:0.55rem; color:rgba(255,255,255,0.35); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Team Members</p>
+      </div>
+      <div class="stat-item border-r border-white/10 px-8 pt-8 md:pt-0">
+        <p class="cval" data-target="10">0</p>
+        <p style="color:var(--gc); font-size:1.8rem; font-weight:300; line-height:1;" aria-hidden="true">+</p>
+        <p style="font-size:0.55rem; color:rgba(255,255,255,0.35); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Countries Served</p>
+      </div>
+      <div class="stat-item pl-8 pt-8 md:pt-0">
+        <p class="cval" data-target="700">0</p>
+        <p style="color:var(--gc); font-size:1.8rem; font-weight:300; line-height:1;" aria-hidden="true">+</p>
+        <p style="font-size:0.55rem; color:rgba(255,255,255,0.35); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Satisfied Clients</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ PRODUCTS ═══════════════════════════════ -->
+  <section id="products" class="px-[2vw] py-24 md:py-40" aria-labelledby="products-heading">
+
+    <div class="flex items-end justify-between mb-12 flex-wrap gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="slabel">04 / Portfolio</span>
+          <div class="rl w-10" aria-hidden="true"></div>
+        </div>
+        <h2 id="products-heading" style="font-size:clamp(2rem,5vw,5rem); font-weight:300; line-height:1; letter-spacing:-0.02em;">
+          Our Product<br/>Range.
+        </h2>
+      </div>
+      <a href="products.html"
+         class="self-end text-xs tracking-widest uppercase border border-white/30 px-8 py-4
+                hover:bg-white hover:text-black transition-colors duration-300"
+         style="letter-spacing:0.14em;">
+        View All Products →
+      </a>
+    </div>
+
+    <!-- 3×2 grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">
+
+      <a href="mcb_parts.html" class="prod-card bg-black group">
+        <div class="relative overflow-hidden" style="aspect-ratio:4/5;">
+          <img src="https://www.deepakproducts.com/assets/img/home_products/mcb_part.jpg" alt="MCB Parts – Terminal Cage components manufactured by Deepak Products, Jamnagar" class="prod-img" width="400" height="500" loading="lazy" />
+          <div class="prod-ov" aria-hidden="true"></div>
+        </div>
+        <div class="p-6 border-t border-white/10">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="slabel mb-2">01</p>
+              <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">MCB Parts</h3>
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Sheet Metal Components</p>
+            </div>
+            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="brass_electrical_components.html" class="prod-card bg-black group">
+        <div class="relative overflow-hidden" style="aspect-ratio:4/5;">
+          <img src="https://www.deepakproducts.com/assets/img/home_products/electrical_components.jpg" alt="Brass Electrical Components – lugs, pins, terminals by Deepak Products" class="prod-img" width="400" height="500" loading="lazy" />
+          <div class="prod-ov" aria-hidden="true"></div>
+        </div>
+        <div class="p-6 border-t border-white/10">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="slabel mb-2">02</p>
+              <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Brass Electrical Components</h3>
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Electrical</p>
+            </div>
+            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="modular_socket_parts.html" class="prod-card bg-black group">
+        <div class="relative overflow-hidden" style="aspect-ratio:4/5;">
+          <img src="https://www.deepakproducts.com/assets/img/home_products/modular_socket_parts.jpg" alt="Brass Modular Socket Parts – 6A, 16A, 6-13A by Deepak Products" class="prod-img" width="400" height="500" loading="lazy" />
+          <div class="prod-ov" aria-hidden="true"></div>
+        </div>
+        <div class="p-6 border-t border-white/10">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="slabel mb-2">03</p>
+              <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Brass Modular Socket Parts</h3>
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Modular Socket / Switch</p>
+            </div>
+            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="crimping_lugs.html" class="prod-card bg-black group">
+        <div class="relative overflow-hidden" style="aspect-ratio:4/5;">
+          <img src="https://www.deepakproducts.com/assets/img/home_products/crimping_lugs.jpg" alt="Crimping Lugs – brass cable connection lugs by Deepak Products" class="prod-img" width="400" height="500" loading="lazy" />
+          <div class="prod-ov" aria-hidden="true"></div>
+        </div>
+        <div class="p-6 border-t border-white/10">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="slabel mb-2">04</p>
+              <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Crimping Lugs</h3>
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Electrical Components</p>
+            </div>
+            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="brass_turned_components.html" class="prod-card bg-black group">
+        <div class="relative overflow-hidden" style="aspect-ratio:4/5;">
+          <img src="https://www.deepakproducts.com/assets/img/home_products/brass_turned_components.jpg" alt="Brass Turned Components – CNC precision machined parts by Deepak Products" class="prod-img" width="400" height="500" loading="lazy" />
+          <div class="prod-ov" aria-hidden="true"></div>
+        </div>
+        <div class="p-6 border-t border-white/10">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="slabel mb-2">05</p>
+              <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Brass Turned Components</h3>
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Precision Components</p>
+            </div>
+            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="customized_components.html" class="prod-card bg-black group">
+        <div class="relative overflow-hidden" style="aspect-ratio:4/5;">
+          <img src="https://www.deepakproducts.com/assets/img/home_products/customized_components.jpg" alt="Customized Components – bespoke metal parts by Deepak Products" class="prod-img" width="400" height="500" loading="lazy" />
+          <div class="prod-ov" aria-hidden="true"></div>
+        </div>
+        <div class="p-6 border-t border-white/10">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="slabel mb-2">06</p>
+              <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Customized Components</h3>
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Bespoke Manufacturing</p>
+            </div>
+            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ VALUES ═══════════════════════════════ -->
+  <section id="values" class="px-[2vw] py-24 md:py-40 border-t border-white/10" aria-labelledby="values-heading">
+
+    <div class="flex items-center gap-3 mb-16">
+      <span class="slabel">05 / Manifesto</span>
+      <div class="rl w-10" aria-hidden="true"></div>
+    </div>
+
+    <div class="mb-20 max-w-5xl" id="manifesto-wrap">
+      <p id="manifesto-text"
+         style="font-size:clamp(1.1rem,2.4vw,2rem); font-weight:300; line-height:1.65; color:rgba(255,255,255,0.15);">
+        We believe in respecting and having faith in our customers. We grow through creativity, invention, and innovation. Our core values include integrating honesty, integrity, and business ethics into all aspects of our business.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 mb-12">
+      <div class="bg-black p-10 md:p-12 pillar">
+        <p class="slabel mb-6">01</p>
+        <h3 id="values-heading" style="font-size:clamp(1.6rem,3vw,3rem); font-weight:300; line-height:1.05;" class="mb-5">Excellence</h3>
+        <p style="font-size:0.7rem; color:rgba(255,255,255,0.38); line-height:1.85;">
+          Maintaining perfection in quality and standards — achieving excellence in every component we manufacture for our global clients.
+        </p>
+      </div>
+      <div class="bg-black p-10 md:p-12 border-t md:border-t-0 border-white/10 pillar">
+        <p class="slabel mb-6">02</p>
+        <h3 style="font-size:clamp(1.6rem,3vw,3rem); font-weight:300; line-height:1.05;" class="mb-5">Innovation</h3>
+        <p style="font-size:0.7rem; color:rgba(255,255,255,0.38); line-height:1.85;">
+          Growing through creativity, invention, and innovation in sheet metal and precision manufacturing processes and product development.
+        </p>
+      </div>
+      <div class="bg-black p-10 md:p-12 border-t md:border-t-0 border-white/10 pillar">
+        <p class="slabel mb-6">03</p>
+        <h3 style="font-size:clamp(1.6rem,3vw,3rem); font-weight:300; line-height:1.05;" class="mb-5">Commitment</h3>
+        <p style="font-size:0.7rem; color:rgba(255,255,255,0.38); line-height:1.85;">
+          A steadfast commitment to customer needs, timely delivery, and ethical business practices in every facet of our operations.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div class="vpill flex justify-between items-center">
+        <span style="font-size:0.8rem; letter-spacing:0.04em;">Team Work</span>
+        <span class="slabel" aria-hidden="true">04</span>
+      </div>
+      <div class="vpill flex justify-between items-center">
+        <span style="font-size:0.8rem; letter-spacing:0.04em;">Efficiency</span>
+        <span class="slabel" aria-hidden="true">05</span>
+      </div>
+      <div class="vpill flex justify-between items-center">
+        <span style="font-size:0.8rem; letter-spacing:0.04em;">Sustainability</span>
+        <span class="slabel" aria-hidden="true">06</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ PROCESS ═══════════════════════════════ -->
+  <section id="process" class="px-[2vw] py-24 md:py-40 border-t border-white/10" aria-labelledby="process-heading">
+
+    <div class="flex items-center gap-3 mb-4">
+      <span class="slabel">06 / Process</span>
+      <div class="rl w-10" aria-hidden="true"></div>
+    </div>
+
+    <div class="flex items-end justify-between mb-14 flex-wrap gap-4">
+      <h2 id="process-heading" style="font-size:clamp(2rem,5vw,5rem); font-weight:300; line-height:1; letter-spacing:-0.02em;">
+        How We<br/>Work.
+      </h2>
+      <p style="font-size:0.7rem; color:rgba(255,255,255,0.35); max-width:18rem; line-height:1.85;">
+        Our systematic 4-step production process ensures every component meets world-class quality standards.
+      </p>
+    </div>
+
+    <ol style="list-style:none;">
+      <li class="pstep prow grid grid-cols-1 md:grid-cols-[3rem_1fr_1fr] gap-4 md:gap-14 items-start">
+        <p class="slabel pt-0.5" aria-hidden="true">01</p>
+        <h3 style="font-size:clamp(1.4rem,2.8vw,2.4rem); font-weight:300; line-height:1.1;">Raw Material</h3>
+        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85; padding-top:2px;">
+          First step of production is to purchase the raw material from our trusted and verified supplier. Materials are purchased as per the standard material grade or customer's specification.
+        </p>
+      </li>
+      <li class="pstep prow grid grid-cols-1 md:grid-cols-[3rem_1fr_1fr] gap-4 md:gap-14 items-start">
+        <p class="slabel pt-0.5" aria-hidden="true">02</p>
+        <h3 style="font-size:clamp(1.4rem,2.8vw,2.4rem); font-weight:300; line-height:1.1;">Manufacturing</h3>
+        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85; padding-top:2px;">
+          Processes include drilling, facing, milling &amp; cutting. Expert engineers oversee measurement, dimensions &amp; quality checking of products at every production stage.
+        </p>
+      </li>
+      <li class="pstep prow grid grid-cols-1 md:grid-cols-[3rem_1fr_1fr] gap-4 md:gap-14 items-start">
+        <p class="slabel pt-0.5" aria-hidden="true">03</p>
+        <h3 style="font-size:clamp(1.4rem,2.8vw,2.4rem); font-weight:300; line-height:1.1;">Quality Control</h3>
+        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85; padding-top:2px;">
+          After production, each item goes to QC Department. The Quality Control Supervisor checks all dimensions and measurements using various quality checking methods and instruments.
+        </p>
+      </li>
+      <li class="pstep prow grid grid-cols-1 md:grid-cols-[3rem_1fr_1fr] gap-4 md:gap-14 items-start">
+        <p class="slabel pt-0.5" aria-hidden="true">04</p>
+        <h3 style="font-size:clamp(1.4rem,2.8vw,2.4rem); font-weight:300; line-height:1.1;">Packaging</h3>
+        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85; padding-top:2px;">
+          After inspection, each order moves to packing location for final check. The packing list is printed and the entire order is carefully packed and dispatched.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ═══════════════════════════════ INDUSTRIES ═══════════════════════════════ -->
+  <section id="industries" class="px-[2vw] py-24 md:py-40 border-t border-white/10" aria-labelledby="industries-heading">
+
+    <div class="flex items-center gap-3 mb-4">
+      <span class="slabel">07 / Industries</span>
+      <div class="rl w-10" aria-hidden="true"></div>
+    </div>
+
+    <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
+      <h2 id="industries-heading" style="font-size:clamp(2rem,5vw,5rem); font-weight:300; line-height:1; letter-spacing:-0.02em;">
+        Industries<br/>We Serve.
+      </h2>
+      <p style="font-size:0.7rem; color:rgba(255,255,255,0.35); max-width:18rem; line-height:1.85;">
+        We serve a wide range of industries, adapting our services to suit diverse applications and requirements.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-px bg-white/10">
+      <div class="ind-card bg-black">
+        <img src="https://www.deepakproducts.com/assets/img/industries/01.jpg" alt="Automobile industry – Deepak Products supplies sheet metal components" width="200" height="267" loading="lazy" />
+        <div class="ind-label"><p class="slabel mb-1" aria-hidden="true">01</p><p style="font-size:0.7rem; font-weight:300;">Automobile</p></div>
+      </div>
+      <div class="ind-card bg-black">
+        <img src="https://www.deepakproducts.com/assets/img/industries/02.jpg" alt="Electrical industry – brass components and MCB parts" width="200" height="267" loading="lazy" />
+        <div class="ind-label"><p class="slabel mb-1" aria-hidden="true">02</p><p style="font-size:0.7rem; font-weight:300;">Electrical</p></div>
+      </div>
+      <div class="ind-card bg-black">
+        <img src="https://www.deepakproducts.com/assets/img/industries/03.jpg" alt="Telecommunication industry – precision components" width="200" height="267" loading="lazy" />
+        <div class="ind-label"><p class="slabel mb-1" aria-hidden="true">03</p><p style="font-size:0.7rem; font-weight:300;">Telecommunication</p></div>
+      </div>
+      <div class="ind-card bg-black">
+        <img src="https://www.deepakproducts.com/assets/img/industries/04.jpg" alt="Hardware Locks industry – mortise lock parts" width="200" height="267" loading="lazy" />
+        <div class="ind-label"><p class="slabel mb-1" aria-hidden="true">04</p><p style="font-size:0.7rem; font-weight:300;">Hardware Locks</p></div>
+      </div>
+      <div class="ind-card bg-black">
+        <img src="https://www.deepakproducts.com/assets/img/industries/05.jpg" alt="Home Appliances industry – custom metal components" width="200" height="267" loading="lazy" />
+        <div class="ind-label"><p class="slabel mb-1" aria-hidden="true">05</p><p style="font-size:0.7rem; font-weight:300;">Home Appliances</p></div>
+      </div>
+      <div class="ind-card bg-black">
+        <img src="https://www.deepakproducts.com/assets/img/industries/06.jpg" alt="Sanitary and Plumbing industry components" width="200" height="267" loading="lazy" />
+        <div class="ind-label"><p class="slabel mb-1" aria-hidden="true">06</p><p style="font-size:0.7rem; font-weight:300;">Sanitary &amp; Plumbing</p></div>
+      </div>
+      <div class="ind-card bg-black">
+        <img src="https://www.deepakproducts.com/assets/img/industries/07.jpg" alt="Health Care industry precision components" width="200" height="267" loading="lazy" />
+        <div class="ind-label"><p class="slabel mb-1" aria-hidden="true">07</p><p style="font-size:0.7rem; font-weight:300;">Health Care</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+  <section id="contact" class="px-[2vw] py-24 md:py-40 border-t border-[#4AAB3D]" aria-labelledby="contact-heading">
+
+    <div class="flex items-center gap-3 mb-16">
+      <span class="slabel">08 / Contact</span>
+      <div class="rl w-10" aria-hidden="true"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[8vw]">
+      <div>
+        <h2 id="contact-heading"
+            style="font-size:clamp(2.5rem,7.5vw,8.5rem); font-weight:300; line-height:0.9; letter-spacing:-0.025em;"
+            class="mb-10">
+          Let's Work<br/>
+          <em style="color:rgba(255,255,255,0.22); font-style:italic;">Together.</em>
+        </h2>
+        <a href="contact_us.html"
+           class="inline-flex items-center gap-4 text-xs tracking-widest uppercase
+                  border border-white px-10 py-5 group
+                  hover:bg-white hover:text-black transition-colors duration-300"
+           style="letter-spacing:0.14em;">
+          Get Instant Quote
+          <span class="inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <address class="space-y-8 not-italic">
+        <div>
+          <p class="slabel mb-3">Location</p>
+          <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); line-height:1.85;">
+            Plot No 4219, Road – F, Shree Lal Bapu Road,<br/>
+            G.I.D.C., Phase – III, Dared,<br/>
+            Jamnagar – 361 005, Gujarat – INDIA.
+          </p>
+        </div>
+        <div class="border-t border-white/10 pt-8">
+          <p class="slabel mb-3">Call For Support</p>
+          <a href="tel:+919662713385" style="font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; margin-bottom:4px; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">+91 96627 13385</a>
+          <a href="tel:+918866751091" style="font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">+91 88667 51091</a>
+        </div>
+        <div class="border-t border-white/10 pt-8">
+          <p class="slabel mb-3">Send E-Mail</p>
+          <a href="mailto:sales@deepakproducts.com" style="font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; margin-bottom:4px; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">sales@deepakproducts.com</a>
+          <a href="mailto:pratik@deepakproducts.com" style="font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">pratik@deepakproducts.com</a>
+        </div>
+        <div class="border-t border-white/10 pt-8">
+          <p class="slabel mb-3">Working Hours</p>
+          <p style="font-size:0.75rem; color:rgba(255,255,255,0.5);">Sat – Thu: 9:00 AM To 7:30 PM</p>
+          <p style="font-size:0.75rem; color:rgba(255,255,255,0.3);">Friday: Closed</p>
+        </div>
+      </address>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+  <footer class="px-[2vw] pt-16 pb-8 border-t border-white/10">
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+
+      <div>
+        <h3 style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; margin-bottom:1rem;">Deepak Products</h3>
+        <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); line-height:1.9;">
+          We strongly believe in maintaining perfection in quality and standards, which leads to achieve excellence in our profession. Sheet metal &amp; brass components manufacturer, Jamnagar, Gujarat.
+        </p>
+        <div class="mt-6">
+          <p class="slabel mb-2">ISO Certified</p>
+          <p style="font-size:0.65rem; color:rgba(255,255,255,0.25);">9001:2015 · D-U-N-S® 65-081-4762</p>
+        </div>
+        <div class="mt-4">
+          <p class="slabel mb-2">Quick Links</p>
+          <nav aria-label="Footer quick links">
+            <a href="about_us.html" class="flink">About Us</a>
+            <a href="quality.html" class="flink">Quality</a>
+            <a href="infrastructure.html" class="flink">Infrastructure</a>
+            <a href="contact_us.html" class="flink">Contact Us</a>
+          </nav>
+        </div>
+      </div>
+
+      <div>
+        <p class="slabel mb-4">Sheet Metal</p>
+        <nav aria-label="Sheet metal products">
+          <a href="sheet_metal_components.html" class="flink">Sheet Metal Components</a>
+          <a href="mcb_parts.html" class="flink">MCB Parts</a>
+          <a href="brass_electrical_components.html" class="flink">Brass Electrical Components</a>
+          <a href="mortise_lock_parts.html" class="flink">Mortise Lock Parts</a>
+          <a href="deep_draw_products.html" class="flink">Deep Draw Products</a>
+          <a href="brass_and_ms_washers.html" class="flink">Brass &amp; MS Washers</a>
+          <a href="brass_fuse_components.html" class="flink">Brass Fuse Components</a>
+        </nav>
+      </div>
+
+      <div>
+        <p class="slabel mb-4">Modular Socket / Switch</p>
+        <nav aria-label="Modular socket and switch products">
+          <a href="modular_socket_switch_parts.html" class="flink">Modular Socket / Switch Parts</a>
+          <a href="modular_socket_parts.html" class="flink">Modular Socket Parts</a>
+          <a href="modular_switch_parts.html" class="flink">Modular Switch Parts</a>
+          <a href="modular_pins.html" class="flink">Modular Pins</a>
+          <a href="brass_terminals.html" class="flink">Brass Terminals</a>
+        </nav>
+      </div>
+
+      <div>
+        <p class="slabel mb-4">Other Products</p>
+        <nav aria-label="Other products">
+          <a href="crimping_lugs.html" class="flink">Crimping Lugs</a>
+          <a href="brass_earth_tag.html" class="flink">Brass Earth Tag</a>
+          <a href="brass_turned_components.html" class="flink">Brass Turned Components</a>
+          <a href="brass_hex_nuts_and_bolts.html" class="flink">Brass Hex Nuts &amp; Bolts</a>
+          <a href="brass_moulding_inserts.html" class="flink">Brass Moulding Inserts</a>
+          <a href="customized_components.html" class="flink">Customized Components</a>
+        </nav>
+        <div class="mt-8">
+          <p class="slabel mb-3">Contact</p>
+          <p style="font-size:0.62rem; color:rgba(255,255,255,0.35); line-height:1.9;">
+            Plot No 4219, Road–F, G.I.D.C. Phase–III,<br/>
+            Dared, Jamnagar–361 005, Gujarat, INDIA<br/>
+            <a href="tel:+919662713385" style="color:rgba(255,255,255,0.45);text-decoration:none;">+91 96627 13385</a><br/>
+            <a href="mailto:sales@deepakproducts.com" style="color:rgba(255,255,255,0.45);text-decoration:none;">sales@deepakproducts.com</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-white/8 pt-6">
+      <p style="font-size:0.55rem; color:rgba(255,255,255,0.25); letter-spacing:0.12em;">© Copyright 2025 By Deepak Products | All Rights Reserved.</p>
+      <p style="font-size:0.55rem; color:rgba(255,255,255,0.15); letter-spacing:0.08em;">Created By : Web Space Technologies</p>
+    </div>
+
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a id="wa" href="https://wa.me/+919662713385" target="_blank" rel="noopener noreferrer" aria-label="Chat with Deepak Products on WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+    window.dpReady = false;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    gsap.registerPlugin(ScrollTrigger);
+
+    let lenis;
+    if (!prefersReduced) {
+      lenis = new Lenis({ duration: 1.35, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothTouch: false, touchMultiplier: 2 });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(time => lenis.raf(time * 1000));
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    const cur  = document.getElementById('cur');
+    const curf = document.getElementById('cur-f');
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let fx = mx, fy = my;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
+    (function loop() { fx += (mx - fx) * 0.1; fy += (my - fy) * 0.1; curf.style.left = fx + 'px'; curf.style.top = fy + 'px'; requestAnimationFrame(loop); })();
+
+    const navtime = document.getElementById('navtime');
+    function tick() {
+      const t = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false });
+      if (navtime) navtime.textContent = 'IST ' + t;
+    }
+    tick(); setInterval(tick, 1000);
+
+    const mbtn = document.getElementById('mbtn');
+    const mmenu = document.getElementById('mmenu');
+    const ml1 = document.getElementById('mline1');
+    const ml2 = document.getElementById('mline2');
+    let mopen = false;
+    mbtn.addEventListener('click', () => {
+      mopen = !mopen;
+      mmenu.classList.toggle('open', mopen);
+      ml1.style.transform = mopen ? 'rotate(45deg) translateY(5px)' : '';
+      ml2.style.transform = mopen ? 'rotate(-45deg) translateY(-5px)' : '';
+      ml2.style.width = mopen ? '1.5rem' : '';
+      if (lenis) mopen ? lenis.stop() : lenis.start();
+    });
+    document.querySelectorAll('.mm-link').forEach(l => {
+      l.addEventListener('click', () => { mopen = false; mmenu.classList.remove('open'); ml1.style.transform = ml2.style.transform = ''; ml2.style.width = ''; if (lenis) lenis.start(); });
+    });
+
+    const preloader = document.getElementById('preloader');
+    const preBar    = document.getElementById('pre-bar');
+    const preWord   = document.getElementById('pre-word');
+
+    if (prefersReduced) { preloader.style.display = 'none'; initPage(); }
+    else {
+      gsap.set(preWord, { opacity: 0, y: 30 });
+      gsap.timeline({ onComplete: exitPreloader })
+        .to(preBar,  { width: '100%', duration: 1.0, ease: 'power2.inOut', delay: 0.1 })
+        .to(preWord, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+    }
+
+    function exitPreloader() {
+      gsap.to(preloader, { yPercent: -100, duration: 0.7, ease: 'power3.inOut', delay: 0.2, onComplete: () => { preloader.style.display = 'none'; initPage(); } });
+    }
+
+    function initPage() {
+      window.dpReady = true;
+      gsap.set('#hero-bottom', { opacity: 0, y: 20 });
+      const masks = document.querySelectorAll('.mask > span');
+      gsap.to(masks, { y: 0, duration: 1.3, stagger: 0.13, ease: 'power3.out', delay: 0.05 });
+      gsap.to('#hero-bottom', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: 0.55 });
+
+      const words = ['High Quality.', 'Precision.', 'Innovation.', 'Excellence.', 'Reliability.'];
+      let wIdx = 0;
+      const wslot = document.getElementById('wslot');
+      const wEl   = wslot.querySelector('.wd');
+      function nextWord() {
+        wIdx = (wIdx + 1) % words.length;
+        gsap.timeline()
+          .to(wslot, { yPercent: -110, duration: 0.42, ease: 'power3.in' })
+          .call(() => { wEl.textContent = words[wIdx]; gsap.set(wslot, { yPercent: 110 }); })
+          .to(wslot, { yPercent: 0, duration: 0.52, ease: 'power3.out' });
+      }
+      setInterval(nextWord, 2800);
+
+      const aImg = document.getElementById('about-img');
+      if (aImg) gsap.to(aImg, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+      const aboutH = document.getElementById('about-heading');
+      if (aboutH) { gsap.set(aboutH, { opacity: 0, y: 35 }); ScrollTrigger.create({ trigger: aboutH, start: 'top 82%', once: true, onEnter: () => gsap.to(aboutH, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }) }); }
+
+      let statsDone = false;
+      ScrollTrigger.create({ trigger: '#stats', start: 'top 72%', once: true, onEnter: () => {
+        if (statsDone) return; statsDone = true;
+        document.querySelectorAll('.stat-item .cval').forEach((el, i) => {
+          const target = parseInt(el.dataset.target, 10);
+          gsap.to({ v: 0 }, { v: target, duration: 2.0, delay: i * 0.12, ease: 'power2.out', onUpdate() { el.textContent = Math.round(this.targets()[0].v); } });
+        });
+      }});
+
+      gsap.set('.prod-card', { opacity: 0, y: 40 });
+      ScrollTrigger.create({ trigger: '#products', start: 'top 78%', once: true, onEnter: () => gsap.to('.prod-card', { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }) });
+
+      const mText = document.getElementById('manifesto-text');
+      if (mText) {
+        const raw = mText.textContent.trim();
+        mText.innerHTML = raw.split(/\s+/).map(w => `<span class="mw" style="opacity:0.08;display:inline-block;margin-right:0.28em;">${w}</span>`).join('');
+        ScrollTrigger.create({ trigger: mText, start: 'top 80%', end: 'bottom 35%', scrub: 1.2,
+          onUpdate(self) {
+            const spans = mText.querySelectorAll('.mw'); const total = spans.length;
+            spans.forEach((w, i) => { const t = i / total; const val = self.progress >= t ? Math.min(1, 0.08 + (self.progress - t) * total * 1.4) : 0.08; w.style.opacity = val; });
+          }
+        });
+      }
+
+      gsap.set('.pillar', { opacity: 0, y: 30 });
+      ScrollTrigger.create({ trigger: '#values', start: 'top 75%', once: true, onEnter: () => gsap.to('.pillar', { opacity: 1, y: 0, duration: 0.85, stagger: 0.14, ease: 'power3.out' }) });
+
+      gsap.set('.prow', { opacity: 0, x: -24 });
+      ScrollTrigger.create({ trigger: '#process', start: 'top 75%', once: true, onEnter: () => gsap.to('.prow', { opacity: 1, x: 0, duration: 0.75, stagger: 0.12, ease: 'power3.out' }) });
+
+      gsap.set('.ind-card', { opacity: 0, scale: 0.94 });
+      ScrollTrigger.create({ trigger: '#industries', start: 'top 80%', once: true, onEnter: () => gsap.to('.ind-card', { opacity: 1, scale: 1, duration: 0.8, stagger: 0.08, ease: 'power3.out' }) });
+
+      const ctH = document.getElementById('contact-heading');
+      if (ctH) { gsap.set(ctH, { opacity: 0, y: 40 }); ScrollTrigger.create({ trigger: '#contact', start: 'top 80%', once: true, onEnter: () => gsap.to(ctH, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }) }); }
+    }
+  })();
+  </script>
+
+  <!-- CNC Canvas Animation -->
+  <script>
+  (function () {
+    const canvas = document.getElementById('cnc-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const GC  = '#4AAB3D';
+
+    function resize() { canvas.width = canvas.offsetWidth * window.devicePixelRatio; canvas.height = canvas.offsetHeight * window.devicePixelRatio; ctx.scale(window.devicePixelRatio, window.devicePixelRatio); }
+    resize(); window.addEventListener('resize', resize);
+
+    const W = () => canvas.offsetWidth;
+    const H = () => canvas.offsetHeight;
+    let t = 0;
+    const sparks = [], trail = [], MAX_TR = 420;
+    let lastX = 0, lastY = 0;
+
+    function toolPos(time) {
+      const cx = W()*0.5, cy = H()*0.5, rx = W()*0.38, ry = H()*0.32;
+      const phase = time*0.22, sweep = Math.sin(time*0.06)*0.45+0.55;
+      return { x: cx + rx*Math.cos(phase)*sweep + W()*0.08*Math.sin(time*0.11), y: cy + ry*Math.sin(phase*1.37)*sweep + H()*0.06*Math.cos(time*0.09) };
+    }
+
+    function spawnSparks(x, y, vx, vy) {
+      const count = 4 + Math.floor(Math.random()*4);
+      for (let i = 0; i < count; i++) {
+        const angle = Math.atan2(vy, vx) + (Math.random()-0.5)*Math.PI*1.6;
+        const spd = 1.2 + Math.random()*3.5;
+        sparks.push({ x, y, vx: Math.cos(angle)*spd, vy: Math.sin(angle)*spd-1.5, life: 1, maxLife: 0.6+Math.random()*0.4, size: 0.8+Math.random()*1.8, bright: 0.5+Math.random()*0.5 });
+      }
+    }
+
+    function draw() {
+      requestAnimationFrame(draw);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const w = W(), h = H();
+      ctx.clearRect(0,0,w,h);
+      ctx.fillStyle = '#000'; ctx.fillRect(0,0,w,h);
+
+      const gSize = Math.round(w/18);
+      ctx.lineWidth = 0.5;
+      for (let gx = 0; gx < w; gx += gSize) { ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,h); ctx.strokeStyle = `rgba(74,171,61,${gx%(gSize*4)===0?0.1:0.04})`; ctx.stroke(); }
+      for (let gy = 0; gy < h; gy += gSize) { ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(w,gy); ctx.strokeStyle = `rgba(74,171,61,${gy%(gSize*4)===0?0.1:0.04})`; ctx.stroke(); }
+
+      ctx.strokeStyle = 'rgba(74,171,61,0.18)'; ctx.lineWidth = 0.75; ctx.setLineDash([4,8]);
+      ctx.beginPath(); ctx.moveTo(w*0.5,0); ctx.lineTo(w*0.5,h); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,h*0.5); ctx.lineTo(w,h*0.5); ctx.stroke();
+      ctx.setLineDash([]);
+
+      if (trail.length > 2) {
+        for (let i = 1; i < trail.length; i++) { const ratio = i/trail.length; ctx.beginPath(); ctx.moveTo(trail[i-1].x,trail[i-1].y); ctx.lineTo(trail[i].x,trail[i].y); ctx.strokeStyle = `rgba(74,171,61,${ratio*0.45})`; ctx.lineWidth = 1.2; ctx.stroke(); }
+        if (trail.length > 10) { const recent = trail.slice(-12); ctx.beginPath(); ctx.moveTo(recent[0].x,recent[0].y); recent.forEach(p => ctx.lineTo(p.x,p.y)); ctx.strokeStyle = 'rgba(74,171,61,0.85)'; ctx.lineWidth = 2; ctx.shadowColor = GC; ctx.shadowBlur = 8; ctx.stroke(); ctx.shadowBlur = 0; }
+      }
+
+      const pos = toolPos(t); const dx = pos.x-lastX, dy = pos.y-lastY;
+      trail.push({x:pos.x,y:pos.y}); if (trail.length > MAX_TR) trail.shift();
+      const speed = Math.sqrt(dx*dx+dy*dy); if (speed > 0.3) spawnSparks(pos.x,pos.y,dx,dy);
+      lastX = pos.x; lastY = pos.y;
+
+      for (let i = sparks.length-1; i >= 0; i--) {
+        const s = sparks[i]; s.x+=s.vx; s.y+=s.vy; s.vy+=0.18; s.vx*=0.97; s.life-=0.045/s.maxLife;
+        if (s.life <= 0) { sparks.splice(i,1); continue; }
+        const a = s.life*s.bright; const r = Math.round(74+(255-74)*s.life), g = Math.round(171+(255-171)*s.life), b = Math.round(61+(255-61)*s.life);
+        ctx.beginPath(); ctx.arc(s.x,s.y,s.size*s.life,0,Math.PI*2); ctx.fillStyle = `rgba(${r},${g},${b},${a})`; ctx.fill();
+      }
+
+      const {x,y} = pos;
+      const grad = ctx.createRadialGradient(x,y,0,x,y,40); grad.addColorStop(0,'rgba(74,171,61,0.35)'); grad.addColorStop(1,'rgba(74,171,61,0)');
+      ctx.beginPath(); ctx.arc(x,y,40,0,Math.PI*2); ctx.fillStyle = grad; ctx.fill();
+      ctx.shadowColor = GC; ctx.shadowBlur = 12;
+      ctx.beginPath(); ctx.arc(x,y,7,0,Math.PI*2); ctx.fillStyle = '#fff'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2); ctx.fillStyle = GC; ctx.fill();
+      ctx.shadowBlur = 0;
+      const rot = t*8; ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.lineWidth = 0.8;
+      for (let r = 0; r < 4; r++) { const angle = rot+r*Math.PI*0.5; ctx.beginPath(); ctx.moveTo(x+Math.cos(angle)*9,y+Math.sin(angle)*9); ctx.lineTo(x+Math.cos(angle)*22,y+Math.sin(angle)*22); ctx.stroke(); }
+
+      const xCoord = ((pos.x/w-0.5)*200).toFixed(3), yCoord = ((pos.y/h-0.5)*200).toFixed(3);
+      ctx.font = `${Math.max(9,w*0.009)}px 'Space Grotesk', monospace`; ctx.fillStyle = 'rgba(74,171,61,0.6)'; ctx.textAlign = 'left';
+      ctx.fillText(`X: ${xCoord>0?'+':''}${xCoord}`, 16, h-44); ctx.fillText(`Y: ${yCoord>0?'+':''}${yCoord}`, 16, h-28);
+      ctx.fillStyle = 'rgba(74,171,61,0.3)'; ctx.fillText('Z: -0.500', 16, h-12);
+      ctx.textAlign = 'right'; ctx.fillStyle = 'rgba(74,171,61,0.25)'; ctx.fillText('G01 F1200', w-16, 24); ctx.fillText('M03 S3000', w-16, 40);
+      t += 0.042;
+    }
+    draw();
+  })();
+  </script>
+
+</body>
+</html>
