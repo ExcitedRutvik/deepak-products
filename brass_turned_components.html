@@ -34,7 +34,7 @@
     body:has(a:hover) #cur-f, body:has(button:hover) #cur-f { background: var(--gc); width: 5px; height: 5px; }
     @media (hover: none) { #cur, #cur-f { display: none !important; } body { cursor: auto !important; } }
     #nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gm);border-bottom:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(8px);background:rgba(0,0,0,0.7);}
-    .nl{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.3s ease;}.nl:hover{color:#fff;}
+    .nl{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.3s ease;}.nl:hover{color:#fff;}
     .nav-item{position:relative;}
     .nav-dd{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(5,5,5,0.98);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);width:580px;padding:2.5rem 1.5rem 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.22s ease,visibility 0.22s ease,transform 0.22s ease;z-index:200;}
     .nav-item:hover .nav-dd{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
