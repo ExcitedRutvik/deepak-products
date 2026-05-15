@@ -76,11 +76,11 @@
     /* Nav dropdown (Products mega-menu) */
     .nav-item { position: relative; }
     .nav-dd {
-      position: absolute; top: calc(100% + 16px); left: 50%;
+      position: absolute; top: 100%; left: 50%;
       transform: translateX(-50%) translateY(-6px);
       background: rgba(5,5,5,0.98); backdrop-filter: blur(20px);
       border: 1px solid rgba(255,255,255,0.08);
-      width: 580px; padding: 1.5rem;
+      width: 580px; padding: 2.5rem 1.5rem 1.5rem;
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 0 2rem;
       opacity: 0; visibility: hidden; pointer-events: none;
@@ -100,8 +100,19 @@
     .slabel { font-size: 0.55rem; letter-spacing: 0.22em; color: var(--gc); text-transform: uppercase; }
 
     /* Hero */
-    #hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 var(--gm) 6vh; overflow: hidden; }
+    #hero { position: relative; min-height: 100vh; padding: 0 var(--gm); overflow: hidden; }
     .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: repeating-linear-gradient(90deg, rgba(74,171,61,0.04) 0, rgba(74,171,61,0.04) 1px, transparent 1px, transparent calc(100%/8)); }
+    .hero-cols { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 4vw; min-height: 100vh; padding: 80px 0 6vh; align-items: end; }
+    .hero-text { display: flex; flex-direction: column; justify-content: flex-end; min-height: 100%; }
+    .hero-viz { position: relative; align-self: stretch; }
+    .hero-viz-frame { position: absolute; inset: 80px 0 0 0; overflow: hidden; }
+    .hero-viz-frame::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 80px; background: linear-gradient(to top, #000 0%, rgba(0,0,0,0) 100%); pointer-events: none; }
+    #cnc-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0.78; }
+    @media (max-width: 900px) {
+      .hero-cols { grid-template-columns: 1fr; padding-top: 80px; }
+      .hero-viz { min-height: 360px; }
+      .hero-viz-frame { inset: 0; }
+    }
 
     /* Word mask reveal */
     .mask { overflow: hidden; display: inline-block; vertical-align: bottom; }
@@ -236,7 +247,9 @@
 
   <!-- Navigation -->
   <nav id="nav" aria-label="Main navigation">
-    <a href="index.html" class="text-white text-xs tracking-widest uppercase font-medium" style="letter-spacing:0.18em;" aria-label="Deepak Products Home">Deepak Products</a>
+    <a href="index.html" aria-label="Deepak Products — Home" style="display:inline-flex;align-items:center;">
+      <img src="logo.svg" alt="Deepak Products" style="height:32px;width:auto;display:block;transition:opacity 0.3s ease;" />
+    </a>
 
     <div class="hidden md:flex items-center gap-8">
       <a href="about_us.html" class="nl">About Us</a>
@@ -323,42 +336,53 @@
 
   <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
   <section id="hero" aria-labelledby="hero-heading">
-    <canvas id="cnc-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0.75;" aria-hidden="true"></canvas>
-    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.45) 100%);pointer-events:none;z-index:1;" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
 
-    <div class="relative" style="z-index:2;">
-      <div class="flex items-center gap-3 mb-8">
-        <span class="slabel">01 / Est. 1985</span>
-        <div class="rl w-10" aria-hidden="true"></div>
-        <span class="slabel">Sheet Metal Experts</span>
+    <div class="hero-cols">
+
+      <!-- LEFT: hero text -->
+      <div class="hero-text">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="slabel">01 / Est. 1985</span>
+          <div class="rl w-10" aria-hidden="true"></div>
+          <span class="slabel">Sheet Metal Experts</span>
+        </div>
+
+        <h1 id="hero-heading" style="font-size:clamp(2.4rem,6vw,6.5rem); font-weight:300; line-height:0.96; letter-spacing:-0.025em;" class="mb-8">
+          <div><span class="mask"><span>Innovative</span></span></div>
+          <div><span class="mask"><span>Products</span></span></div>
+          <div class="flex flex-wrap items-baseline gap-x-4">
+            <span class="mask"><span>With</span></span>
+            <span id="wslot" aria-live="polite"><span class="wd" style="color:var(--gc);">High Quality.</span></span>
+          </div>
+        </h1>
+
+        <div id="hero-bottom" class="flex items-end justify-between flex-wrap gap-6" style="opacity:0; transform:translateY(20px);">
+          <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:1.8; max-width:22rem;">
+            One stop solution for sheet metal &amp; brass components.<br/>
+            Customized solutions for various applications.
+          </p>
+          <div class="flex items-center gap-6 flex-wrap">
+            <a href="products.html"
+               class="text-xs tracking-widest uppercase border border-white px-8 py-4
+                      hover:bg-white hover:text-black transition-colors duration-300"
+               style="letter-spacing:0.14em;">
+              Explore Products
+            </a>
+            <a href="about_us.html" class="text-xs tracking-widest uppercase text-white/40 hover:text-white transition-colors duration-300" style="letter-spacing:0.14em;">
+              Our Story →
+            </a>
+          </div>
+        </div>
       </div>
 
-      <h1 id="hero-heading" style="font-size:clamp(2.8rem,9vw,9.5rem); font-weight:300; line-height:0.94; letter-spacing:-0.025em;" class="mb-8">
-        <div><span class="mask"><span>Innovative</span></span></div>
-        <div><span class="mask"><span>Products</span></span></div>
-        <div class="flex flex-wrap items-baseline gap-x-4">
-          <span class="mask"><span>With</span></span>
-          <span id="wslot" aria-live="polite"><span class="wd" style="color:var(--gc);">High Quality.</span></span>
-        </div>
-      </h1>
-
-      <div id="hero-bottom" class="flex items-end justify-between flex-wrap gap-6 pr-16" style="opacity:0; transform:translateY(20px);">
-        <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:1.8; max-width:22rem;">
-          One stop solution for sheet metal &amp; brass components.<br/>
-          Customized solutions for various applications.
-        </p>
-        <div class="flex items-center gap-6 flex-wrap">
-          <a href="products.html"
-             class="text-xs tracking-widest uppercase border border-white px-8 py-4
-                    hover:bg-white hover:text-black transition-colors duration-300"
-             style="letter-spacing:0.14em;">
-            Explore Products
-          </a>
-          <a href="about_us.html" class="text-xs tracking-widest uppercase text-white/40 hover:text-white transition-colors duration-300" style="letter-spacing:0.14em;">
-            Our Story →
-          </a>
+      <!-- RIGHT: CNC visualization -->
+      <div class="hero-viz">
+        <div class="hero-viz-frame">
+          <canvas id="cnc-canvas" aria-hidden="true"></canvas>
         </div>
       </div>
+
     </div>
 
     <!-- Scroll indicator -->
@@ -1051,90 +1075,205 @@
   })();
   </script>
 
-  <!-- CNC Canvas Animation -->
+  <!-- CNC Canvas Animation — multi-panel digital-twin visualization -->
   <script>
   (function () {
     const canvas = document.getElementById('cnc-canvas');
     if (!canvas) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = canvas.getContext('2d');
-    const GC  = '#4AAB3D';
 
-    function resize() { canvas.width = canvas.offsetWidth * window.devicePixelRatio; canvas.height = canvas.offsetHeight * window.devicePixelRatio; ctx.scale(window.devicePixelRatio, window.devicePixelRatio); }
-    resize(); window.addEventListener('resize', resize);
+    const SAMPLES = 240, CYCLE_MS = 14000;
 
-    const W = () => canvas.offsetWidth;
-    const H = () => canvas.offsetHeight;
-    let t = 0;
-    const sparks = [], trail = [], MAX_TR = 420;
-    let lastX = 0, lastY = 0;
-
-    function toolPos(time) {
-      const cx = W()*0.5, cy = H()*0.5, rx = W()*0.38, ry = H()*0.32;
-      const phase = time*0.22, sweep = Math.sin(time*0.06)*0.45+0.55;
-      return { x: cx + rx*Math.cos(phase)*sweep + W()*0.08*Math.sin(time*0.11), y: cy + ry*Math.sin(phase*1.37)*sweep + H()*0.06*Math.cos(time*0.09) };
+    /* ── Shape generators ── */
+    function circle(r, n) {
+      const pts = [];
+      for (let i = 0; i < n; i++) { const a = (i/n)*Math.PI*2; pts.push([Math.cos(a)*r, Math.sin(a)*r]); }
+      return pts;
+    }
+    function hex(r, n) {
+      const verts = [];
+      for (let i = 0; i < 6; i++) { const a = (i/6)*Math.PI*2 + Math.PI/6; verts.push([Math.cos(a)*r, Math.sin(a)*r]); }
+      return resample(verts, n);
+    }
+    function terminal(n) {
+      const w=0.78, h=0.30, r=0.06, cx=0, cy=0, pts=[];
+      function arc(acx,acy,ar,a0,a1,s){for(let i=0;i<=s;i++){const a=a0+(a1-a0)*(i/s);pts.push([acx+Math.cos(a)*ar,acy+Math.sin(a)*ar]);}}
+      arc(cx-w/2+r,cy-h/2+r,r,Math.PI,Math.PI*1.5,6);
+      pts.push([cx-0.07,cy-h/2],[cx-0.07,cy-h/2+0.08],[cx+0.07,cy-h/2+0.08],[cx+0.07,cy-h/2]);
+      arc(cx+w/2-r,cy-h/2+r,r,Math.PI*1.5,Math.PI*2,6);
+      arc(cx+w/2-r,cy+h/2-r,r,0,Math.PI/2,6);
+      arc(cx-w/2+r,cy+h/2-r,r,Math.PI/2,Math.PI,6);
+      return resample(pts,n);
+    }
+    function bracket(n) {
+      return resample([[-0.42,-0.42],[0.42,-0.42],[0.42,-0.10],[-0.08,-0.10],[-0.08,0.42],[-0.42,0.42]],n);
+    }
+    function resample(verts, N) {
+      const closed = verts.concat([verts[0]]);
+      let total=0; const lens=[];
+      for(let i=0;i<closed.length-1;i++){const dx=closed[i+1][0]-closed[i][0],dy=closed[i+1][1]-closed[i][1];const L=Math.hypot(dx,dy);lens.push(L);total+=L;}
+      const out=[]; let segI=0,segStart=0;
+      for(let k=0;k<N;k++){const target=(k/N)*total;while(segI<lens.length&&segStart+lens[segI]<target){segStart+=lens[segI];segI++;}const f=lens[segI]===0?0:(target-segStart)/lens[segI];const a=closed[segI],b=closed[segI+1];out.push([a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]);}
+      return out;
     }
 
-    function spawnSparks(x, y, vx, vy) {
-      const count = 4 + Math.floor(Math.random()*4);
-      for (let i = 0; i < count; i++) {
-        const angle = Math.atan2(vy, vx) + (Math.random()-0.5)*Math.PI*1.6;
-        const spd = 1.2 + Math.random()*3.5;
-        sparks.push({ x, y, vx: Math.cos(angle)*spd, vy: Math.sin(angle)*spd-1.5, life: 1, maxLife: 0.6+Math.random()*0.4, size: 0.8+Math.random()*1.8, bright: 0.5+Math.random()*0.5 });
+    const SHAPES = [
+      { name:'BRASS WASHER',     points: circle(0.42, SAMPLES) },
+      { name:'BRASS HEX NUT',    points: hex(0.40, SAMPLES) },
+      { name:'MCB TERMINAL',     points: terminal(SAMPLES) },
+      { name:'MOUNTING BRACKET', points: bracket(SAMPLES) },
+    ];
+
+    let dpr=window.devicePixelRatio||1, W=0, H=0, raf;
+
+    function resize() {
+      dpr = window.devicePixelRatio||1;
+      const parent = canvas.parentElement;
+      const rect = parent ? parent.getBoundingClientRect() : {width:800,height:600};
+      W = Math.max(320, Math.floor(rect.width));
+      H = Math.max(320, Math.floor(rect.height));
+      canvas.style.width  = W+'px';
+      canvas.style.height = H+'px';
+      canvas.width  = W*dpr;
+      canvas.height = H*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    const ro = new ResizeObserver(resize);
+    if (canvas.parentElement) ro.observe(canvas.parentElement);
+
+    const startT = performance.now();
+
+    function draw(now) {
+      const t = Math.max(0, now - startT);
+      ctx.clearRect(0,0,W,H);
+      const idx    = Math.floor(t / CYCLE_MS) % SHAPES.length;
+      const localT = (t % CYCLE_MS) / CYCLE_MS;
+      const cutP   = Math.min(1, localT / 0.82);
+      const shape  = SHAPES[idx];
+      if (!shape) { raf = requestAnimationFrame(draw); return; }
+      try { drawScene(ctx, W, H, shape, cutP, localT, t, idx); } catch(e){}
+      raf = requestAnimationFrame(draw);
+    }
+    raf = requestAnimationFrame(draw);
+
+    /* ── Scene composition ── */
+    function drawScene(ctx, W, H, shape, cutP, localT, t, shapeIdx) {
+      const padX = Math.max(20, W*0.03);
+      const hudY = 24, hudH = 56;
+      drawHUD(ctx, padX, hudY, W-padX*2, hudH, shape, cutP, localT, t, shapeIdx);
+      const stageTop = hudY+hudH+16, stageBottom = H-28, stageH = stageBottom-stageTop;
+      const stacked = W < 720;
+      if (stacked) {
+        const gap=22, labelSpace=22, totalH=stageH-labelSpace*2-gap;
+        const workH=totalH*0.52, isoH=totalH*0.48;
+        drawWorkpiece(ctx, padX, stageTop, W-padX*2, workH, shape, cutP);
+        drawIsoPreview(ctx, padX, stageTop+workH+labelSpace+gap, W-padX*2, isoH, shape, cutP, t);
+      } else {
+        const gap=28, colW=(W-padX*2-gap)/2;
+        drawWorkpiece(ctx, padX, stageTop, colW, stageH-22, shape, cutP);
+        drawIsoPreview(ctx, padX+colW+gap, stageTop, colW, stageH-22, shape, cutP, t);
       }
     }
 
-    function draw() {
-      requestAnimationFrame(draw);
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const w = W(), h = H();
-      ctx.clearRect(0,0,w,h);
-      ctx.fillStyle = '#000'; ctx.fillRect(0,0,w,h);
-
-      const gSize = Math.round(w/18);
-      ctx.lineWidth = 0.5;
-      for (let gx = 0; gx < w; gx += gSize) { ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,h); ctx.strokeStyle = `rgba(74,171,61,${gx%(gSize*4)===0?0.1:0.04})`; ctx.stroke(); }
-      for (let gy = 0; gy < h; gy += gSize) { ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(w,gy); ctx.strokeStyle = `rgba(74,171,61,${gy%(gSize*4)===0?0.1:0.04})`; ctx.stroke(); }
-
-      ctx.strokeStyle = 'rgba(74,171,61,0.18)'; ctx.lineWidth = 0.75; ctx.setLineDash([4,8]);
-      ctx.beginPath(); ctx.moveTo(w*0.5,0); ctx.lineTo(w*0.5,h); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(0,h*0.5); ctx.lineTo(w,h*0.5); ctx.stroke();
+    /* ── Workpiece (top-down) ── */
+    function drawWorkpiece(ctx, x, y, w, h, shape, cutP) {
+      ctx.strokeStyle='rgba(255,255,255,0.14)'; ctx.lineWidth=1; ctx.strokeRect(x,y,w,h);
+      ctx.strokeStyle='rgba(74,171,61,0.55)'; ctx.lineWidth=1;
+      const tick=10, corners=[[x,y],[x+w,y],[x+w,y+h],[x,y+h]];
+      corners.forEach(([cx,cy],i)=>{ctx.beginPath();const sx=i===0||i===3?1:-1,sy=i===0||i===1?1:-1;ctx.moveTo(cx+sx*tick,cy);ctx.lineTo(cx,cy);ctx.lineTo(cx,cy+sy*tick);ctx.stroke();});
+      ctx.strokeStyle='rgba(255,255,255,0.04)';
+      for(let i=1;i<14;i++){const xp=x+(i/14)*w;ctx.beginPath();ctx.moveTo(xp,y+1);ctx.lineTo(xp,y+h-1);ctx.stroke();}
+      for(let i=1;i<8;i++){const yp=y+(i/8)*h;ctx.beginPath();ctx.moveTo(x+1,yp);ctx.lineTo(x+w-1,yp);ctx.stroke();}
+      ctx.font='9px "Space Grotesk",monospace'; ctx.fillStyle='rgba(255,255,255,0.18)'; ctx.textBaseline='top';
+      for(let i=0;i<=4;i++){ctx.textAlign='center';ctx.fillText((i*50).toString().padStart(3,'0'),x+(i/4)*w,y-14);}
+      ctx.textAlign='right';
+      for(let i=0;i<=4;i++){ctx.textBaseline='middle';ctx.fillText((i*40).toString().padStart(3,'0'),x-8,y+(i/4)*h);}
+      const cx=x+w/2, cy=y+h/2, scale=Math.min(w*0.7,h*0.78);
+      const pts=shape.points.map(p=>[cx+p[0]*scale,cy+p[1]*scale]);
+      ctx.strokeStyle='rgba(255,255,255,0.18)'; ctx.setLineDash([3,3]); ctx.lineWidth=1;
+      pathPoly(ctx,pts); ctx.stroke(); ctx.setLineDash([]);
+      if(cutP>0.5){ctx.fillStyle=`rgba(74,171,61,${Math.min(0.06,(cutP-0.5)*0.18)})`;pathPoly(ctx,pts);ctx.fill();}
+      const cutCount=Math.max(0,Math.floor(cutP*pts.length));
+      if(cutCount>1){ctx.strokeStyle='rgba(74,171,61,0.85)';ctx.lineWidth=1.5;ctx.beginPath();for(let i=0;i<=cutCount&&i<pts.length;i++){const p=pts[i];i===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]);}ctx.stroke();}
+      if(cutP>=1-1/pts.length){ctx.beginPath();ctx.moveTo(pts[pts.length-1][0],pts[pts.length-1][1]);ctx.lineTo(pts[0][0],pts[0][1]);ctx.stroke();}
+      const head=pts[Math.min(cutCount,pts.length-1)];
+      ctx.setLineDash([2,5]); ctx.strokeStyle='rgba(74,171,61,0.22)'; ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(head[0],y+2);ctx.lineTo(head[0],y+h-2);ctx.moveTo(x+2,head[1]);ctx.lineTo(x+w-2,head[1]);ctx.stroke();
       ctx.setLineDash([]);
-
-      if (trail.length > 2) {
-        for (let i = 1; i < trail.length; i++) { const ratio = i/trail.length; ctx.beginPath(); ctx.moveTo(trail[i-1].x,trail[i-1].y); ctx.lineTo(trail[i].x,trail[i].y); ctx.strokeStyle = `rgba(74,171,61,${ratio*0.45})`; ctx.lineWidth = 1.2; ctx.stroke(); }
-        if (trail.length > 10) { const recent = trail.slice(-12); ctx.beginPath(); ctx.moveTo(recent[0].x,recent[0].y); recent.forEach(p => ctx.lineTo(p.x,p.y)); ctx.strokeStyle = 'rgba(74,171,61,0.85)'; ctx.lineWidth = 2; ctx.shadowColor = GC; ctx.shadowBlur = 8; ctx.stroke(); ctx.shadowBlur = 0; }
-      }
-
-      const pos = toolPos(t); const dx = pos.x-lastX, dy = pos.y-lastY;
-      trail.push({x:pos.x,y:pos.y}); if (trail.length > MAX_TR) trail.shift();
-      const speed = Math.sqrt(dx*dx+dy*dy); if (speed > 0.3) spawnSparks(pos.x,pos.y,dx,dy);
-      lastX = pos.x; lastY = pos.y;
-
-      for (let i = sparks.length-1; i >= 0; i--) {
-        const s = sparks[i]; s.x+=s.vx; s.y+=s.vy; s.vy+=0.18; s.vx*=0.97; s.life-=0.045/s.maxLife;
-        if (s.life <= 0) { sparks.splice(i,1); continue; }
-        const a = s.life*s.bright; const r = Math.round(74+(255-74)*s.life), g = Math.round(171+(255-171)*s.life), b = Math.round(61+(255-61)*s.life);
-        ctx.beginPath(); ctx.arc(s.x,s.y,s.size*s.life,0,Math.PI*2); ctx.fillStyle = `rgba(${r},${g},${b},${a})`; ctx.fill();
-      }
-
-      const {x,y} = pos;
-      const grad = ctx.createRadialGradient(x,y,0,x,y,40); grad.addColorStop(0,'rgba(74,171,61,0.35)'); grad.addColorStop(1,'rgba(74,171,61,0)');
-      ctx.beginPath(); ctx.arc(x,y,40,0,Math.PI*2); ctx.fillStyle = grad; ctx.fill();
-      ctx.shadowColor = GC; ctx.shadowBlur = 12;
-      ctx.beginPath(); ctx.arc(x,y,7,0,Math.PI*2); ctx.fillStyle = '#fff'; ctx.fill();
-      ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2); ctx.fillStyle = GC; ctx.fill();
-      ctx.shadowBlur = 0;
-      const rot = t*8; ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.lineWidth = 0.8;
-      for (let r = 0; r < 4; r++) { const angle = rot+r*Math.PI*0.5; ctx.beginPath(); ctx.moveTo(x+Math.cos(angle)*9,y+Math.sin(angle)*9); ctx.lineTo(x+Math.cos(angle)*22,y+Math.sin(angle)*22); ctx.stroke(); }
-
-      const xCoord = ((pos.x/w-0.5)*200).toFixed(3), yCoord = ((pos.y/h-0.5)*200).toFixed(3);
-      ctx.font = `${Math.max(9,w*0.009)}px 'Space Grotesk', monospace`; ctx.fillStyle = 'rgba(74,171,61,0.6)'; ctx.textAlign = 'left';
-      ctx.fillText(`X: ${xCoord>0?'+':''}${xCoord}`, 16, h-44); ctx.fillText(`Y: ${yCoord>0?'+':''}${yCoord}`, 16, h-28);
-      ctx.fillStyle = 'rgba(74,171,61,0.3)'; ctx.fillText('Z: -0.500', 16, h-12);
-      ctx.textAlign = 'right'; ctx.fillStyle = 'rgba(74,171,61,0.25)'; ctx.fillText('G01 F1200', w-16, 24); ctx.fillText('M03 S3000', w-16, 40);
-      t += 0.042;
+      ctx.strokeStyle='rgba(74,171,61,0.5)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(head[0],head[1],14,0,Math.PI*2);ctx.stroke();
+      ctx.fillStyle='rgba(74,171,61,1)';ctx.beginPath();ctx.arc(head[0],head[1],2.6,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle='rgba(74,171,61,0.7)';ctx.beginPath();
+      ctx.moveTo(head[0]-8,head[1]);ctx.lineTo(head[0]-3,head[1]);ctx.moveTo(head[0]+3,head[1]);ctx.lineTo(head[0]+8,head[1]);
+      ctx.moveTo(head[0],head[1]-8);ctx.lineTo(head[0],head[1]-3);ctx.moveTo(head[0],head[1]+3);ctx.lineTo(head[0],head[1]+8);
+      ctx.stroke();
+      ctx.fillStyle='rgba(74,171,61,0.7)';ctx.font='9px "Space Grotesk",monospace';ctx.textAlign='left';ctx.textBaseline='alphabetic';
+      ctx.fillText('TOP — WORKPIECE  /  XY PLANE',x,y+h+18);
     }
-    draw();
+
+    function pathPoly(ctx, pts) {
+      ctx.beginPath(); pts.forEach((p,i)=>i===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1])); ctx.closePath();
+    }
+
+    /* ── ISO digital twin (3D) ── */
+    function drawIsoPreview(ctx, x, y, w, h, shape, cutP, t) {
+      ctx.strokeStyle='rgba(255,255,255,0.10)';ctx.lineWidth=1;ctx.strokeRect(x,y,w,h);
+      const wobble=Math.sin(t*0.00018)*0.10, cos30=Math.cos(Math.PI/6+wobble), sin30=Math.sin(Math.PI/6+wobble);
+      const scale=Math.min(w*0.46,h*0.46), cx=x+w/2, cy=y+h*0.62;
+      const proj=(X,Y,Z)=>[cx+(X-Y)*cos30*scale, cy+(X+Y)*sin30*scale-Z];
+      const plate=[proj(-0.7,-0.7,0),proj(0.7,-0.7,0),proj(0.7,0.7,0),proj(-0.7,0.7,0)];
+      ctx.fillStyle='rgba(255,255,255,0.015)';pathPoly(ctx,plate);ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,0.12)';pathPoly(ctx,plate);ctx.stroke();
+      ctx.strokeStyle='rgba(255,255,255,0.05)';
+      for(let i=1;i<10;i++){const u=-0.7+(i/10)*1.4;const a=proj(u,-0.7,0),b=proj(u,0.7,0);ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke();const c=proj(-0.7,u,0),d=proj(0.7,u,0);ctx.beginPath();ctx.moveTo(c[0],c[1]);ctx.lineTo(d[0],d[1]);ctx.stroke();}
+      const SUB=60;const pts=[];for(let i=0;i<SUB;i++)pts.push(shape.points[Math.floor(i/SUB*shape.points.length)]);
+      const partH=22, top=pts.map(p=>proj(p[0],p[1],partH)), bot=pts.map(p=>proj(p[0],p[1],0));
+      ctx.fillStyle='rgba(74,171,61,0.05)';ctx.strokeStyle='rgba(74,171,61,0.22)';
+      for(let i=0;i<pts.length;i++){const ni=(i+1)%pts.length;ctx.beginPath();ctx.moveTo(bot[i][0],bot[i][1]);ctx.lineTo(bot[ni][0],bot[ni][1]);ctx.lineTo(top[ni][0],top[ni][1]);ctx.lineTo(top[i][0],top[i][1]);ctx.closePath();ctx.fill();}
+      ctx.strokeStyle='rgba(74,171,61,0.25)';for(let i=0;i<pts.length;i+=5){ctx.beginPath();ctx.moveTo(bot[i][0],bot[i][1]);ctx.lineTo(top[i][0],top[i][1]);ctx.stroke();}
+      ctx.strokeStyle='rgba(74,171,61,0.3)';pathPoly(ctx,bot);ctx.stroke();
+      ctx.strokeStyle='rgba(74,171,61,0.75)';ctx.lineWidth=1.2;pathPoly(ctx,top);ctx.stroke();ctx.lineWidth=1;
+      const headIdx=Math.min(Math.floor(cutP*shape.points.length),shape.points.length-1);
+      const hp=shape.points[headIdx];
+      const head3=proj(hp[0],hp[1],partH+26),surf3=proj(hp[0],hp[1],partH);
+      ctx.strokeStyle='rgba(74,171,61,0.6)';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(head3[0],head3[1]);ctx.lineTo(surf3[0],surf3[1]);ctx.stroke();ctx.lineWidth=1;
+      ctx.fillStyle='rgba(74,171,61,0.9)';ctx.beginPath();ctx.moveTo(surf3[0],surf3[1]);ctx.lineTo(surf3[0]-4,surf3[1]-10);ctx.lineTo(surf3[0]+4,surf3[1]-10);ctx.closePath();ctx.fill();
+      ctx.strokeStyle='rgba(74,171,61,0.6)';ctx.strokeRect(head3[0]-7,head3[1]-8,14,8);
+      ctx.strokeStyle='rgba(74,171,61,0.10)';ctx.beginPath();ctx.ellipse(cx,cy,scale*0.7*cos30,scale*0.7*sin30,0,0,Math.PI*2);ctx.stroke();
+      ctx.fillStyle='rgba(74,171,61,0.7)';ctx.font='9px "Space Grotesk",monospace';ctx.textAlign='left';ctx.textBaseline='alphabetic';
+      ctx.fillText('ISO — DIGITAL TWIN  /  3D',x,y+h+18);
+    }
+
+    /* ── HUD bar ── */
+    function drawHUD(ctx, x, y, w, h, shape, cutP, localT, t, shapeIdx) {
+      ctx.font='9px "Space Grotesk",monospace'; ctx.textBaseline='top';
+      ctx.strokeStyle='rgba(255,255,255,0.08)';ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+w,y);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(x,y+h);ctx.lineTo(x+w,y+h);ctx.stroke();
+      const lineNo=String(100+Math.floor(cutP*240)).padStart(4,'0');
+      const progNo=String(shapeIdx+1).padStart(2,'0');
+      ctx.fillStyle='rgba(74,171,61,0.85)';ctx.textAlign='left';
+      ctx.fillText(`PROGRAM ${progNo}  //  ${shape.name}`,x,y+10);
+      ctx.fillStyle='rgba(255,255,255,0.32)';
+      ctx.fillText(`N${lineNo}   FEED 480 MM/MIN   SPINDLE 9600 RPM`,x,y+24);
+      ctx.fillStyle='rgba(255,255,255,0.22)';ctx.fillText('STATUS  ·  MILLING',x,y+38);
+      const hp=shape.points[Math.min(Math.floor(cutP*shape.points.length),shape.points.length-1)];
+      const mx=(hp[0]+0.5)*200, my=(hp[1]+0.5)*200, pct=Math.floor(cutP*100);
+      ctx.textAlign='right';ctx.fillStyle='rgba(74,171,61,0.85)';
+      ctx.fillText(`X  ${mx.toFixed(2).padStart(7,' ')}  MM`,x+w,y+10);
+      ctx.fillStyle='rgba(255,255,255,0.32)';
+      ctx.fillText(`Y  ${my.toFixed(2).padStart(7,' ')}  MM`,x+w,y+24);
+      ctx.fillText(`Z   −1.20   MM`,x+w,y+38);
+      const blink=(Math.sin(t*0.006)+1)/2;
+      ctx.fillStyle=`rgba(74,171,61,${0.4+0.5*blink})`;ctx.beginPath();ctx.arc(x+w-4,y+6,3,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='rgba(255,255,255,0.10)';ctx.fillRect(x,y+h-3,w,1);
+      ctx.fillStyle='rgba(74,171,61,0.85)';ctx.fillRect(x,y+h-3,w*cutP,1);
+      ctx.textAlign='right';ctx.fillStyle='rgba(74,171,61,0.6)';
+      ctx.fillText(`${pct.toString().padStart(3,' ')} %`,x+w,y+h+4);
+      ctx.textAlign='left';ctx.fillStyle='rgba(255,255,255,0.25)';ctx.fillText('PROGRESS',x,y+h+4);
+    }
   })();
   </script>
 
