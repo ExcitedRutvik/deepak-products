@@ -14,8 +14,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{colors:{brand:'#4AAB3D'},fontFamily:{neue:['Space Grotesk','sans-serif']}}}}</script>
   <style>
-    :root{--gc:#4AAB3D;--gm:2vw;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{font-size:20px;line-height:1.3;background:#000;color:#fff;-webkit-font-smoothing:antialiased;}
+    :root{--gc:#4AAB3D;--gm:2vw;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;overflow-wrap:break-word;word-break:break-word;}
+    html{font-size:clamp(16px,1.1vw+14px,20px);line-height:1.3;background:#000;color:#fff;-webkit-font-smoothing:antialiased;}
     body{font-family:'Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;background:#000;overflow-x:hidden;cursor:none;}
     html.lenis,html.lenis body{height:auto;}.lenis.lenis-smooth{scroll-behavior:auto!important;}
     #cur { position: fixed; width: 24px; height: 24px; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
@@ -43,8 +43,29 @@
     .page-banner{padding-top:60px;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3rem;padding-left:var(--gm);padding-right:var(--gm);border-bottom:1px solid rgba(255,255,255,0.07);position:relative;overflow:hidden;}
     .banner-grid{position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(90deg,rgba(74,171,61,0.03) 0,rgba(74,171,61,0.03) 1px,transparent 1px,transparent calc(100%/8));}
     .reveal{opacity:0;transform:translateY(24px);}
-    .fac-card{border:1px solid rgba(255,255,255,0.08);padding:2.5rem;transition:border-color 0.3s ease;}
-    .fac-card:hover{border-color:rgba(74,171,61,0.4);}
+    .fac-card{border:1px solid rgba(255,255,255,0.08);overflow:hidden;transition:border-color 0.4s ease;cursor:pointer;}
+    .fac-card:hover{border-color:rgba(74,171,61,0.45);}
+    .fac-img{position:relative;overflow:hidden;background:#050505;}
+    .fac-img img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.55s ease;}
+    .fac-card:hover .fac-img img{transform:scale(1.04);}
+    .fac-img-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background 0.35s ease;}
+    .fac-card:hover .fac-img-overlay{background:rgba(0,0,0,0.35);}
+    .fac-img-overlay span{font-size:0.48rem;letter-spacing:0.24em;text-transform:uppercase;color:#fff;opacity:0;border:1px solid rgba(255,255,255,0.6);padding:0.5rem 1.1rem;transition:opacity 0.3s ease;}
+    .fac-card:hover .fac-img-overlay span{opacity:1;}
+    .fac-body{padding:1.75rem 2rem 2rem;}
+    /* Lightbox */
+    #fac-lb{position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;}
+    #fac-lb.open{display:flex;}
+    #fac-lb-img{max-width:90vw;max-height:75vh;object-fit:contain;display:block;}
+    #fac-lb-title{font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gc);margin-bottom:1.25rem;}
+    .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;font-size:1.1rem;width:2.8rem;height:2.8rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s ease;user-select:none;}
+    .lb-nav:hover{background:rgba(74,171,61,0.2);border-color:var(--gc);}
+    #lb-prev{left:1.5rem;}#lb-next{right:1.5rem;}
+    .lb-dots{display:flex;gap:0.5rem;margin-top:1.25rem;}
+    .lb-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.25);cursor:pointer;transition:background 0.2s ease;}
+    .lb-dot.active{background:var(--gc);}
+    #lb-close{position:absolute;top:1.25rem;right:1.5rem;font-size:0.75rem;letter-spacing:0.14em;color:rgba(255,255,255,0.45);cursor:pointer;text-transform:uppercase;transition:color 0.2s ease;background:none;border:none;font-family:inherit;}
+    #lb-close:hover{color:#fff;}
     .val-pill{border:1px solid rgba(255,255,255,0.1);padding:0.75rem 1.25rem;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;transition:border-color 0.3s ease,background 0.3s ease;}
     .val-pill:hover{border-color:var(--gc);background:rgba(74,171,61,0.04);}
   </style>
@@ -97,7 +118,7 @@
 
 <main>
   <!-- Intro -->
-  <section class="px-[2vw] py-20 md:py-32 border-b border-white/10">
+  <section class="px-[2vw] py-8 md:py-16 border-b border-white/10">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[6vw]">
       <div class="reveal">
         <h2 style="font-size:clamp(1.4rem,2.5vw,2.5rem);font-weight:300;line-height:1.1;margin-bottom:1.5rem;">Empowering Industries Through Manufacturing Expertise.</h2>
@@ -115,41 +136,70 @@
   </section>
 
   <!-- 4 Facility Sections -->
-  <section class="px-[2vw] py-20 md:py-32 border-b border-white/10" aria-labelledby="fac-heading">
+  <section class="px-[2vw] py-8 md:py-16 border-b border-white/10" aria-labelledby="fac-heading">
     <div class="flex items-center gap-3 mb-6"><span class="slabel">Facilities</span><div class="rl w-10" aria-hidden="true"></div></div>
-    <h2 id="fac-heading" style="font-size:clamp(1.6rem,3vw,3rem);font-weight:300;letter-spacing:-0.02em;" class="mb-14 reveal">Our Facility Sections</h2>
+    <h2 id="fac-heading" style="font-size:clamp(1.6rem,3vw,3rem);font-weight:300;letter-spacing:-0.02em;" class="mb-6 md:mb-10 reveal">Our Facility Sections</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="fac-card reveal">
-        <p class="slabel mb-5">01</p>
-        <h3 style="font-size:clamp(1.3rem,2.5vw,2.2rem);font-weight:300;line-height:1.05;margin-bottom:1rem;">Press Shop</h3>
-        <p style="font-size:0.68rem;color:rgba(255,255,255,0.42);line-height:1.85;margin-bottom:1rem;">Our press shop houses 40+ power press machines capable of hot and cold rolled operations. This enables us to produce high-volume sheet metal stampings with precision and consistency.</p>
-        <p style="font-size:0.62rem;color:var(--gc);letter-spacing:0.1em;text-transform:uppercase;">40+ Power Press Machines</p>
+
+      <div class="fac-card reveal" onclick="openFacLB('press')" role="button" tabindex="0" aria-label="View Press Shop photos">
+        <div class="fac-img">
+          <img src="assets/img/infrastructure/power_press1.jpg" alt="Press Shop — Power Press Machines" loading="lazy" />
+          <div class="fac-img-overlay"><span>View Photos</span></div>
+        </div>
+        <div class="fac-body">
+          <p class="slabel mb-4">01</p>
+          <h3 style="font-size:clamp(1.1rem,2vw,1.8rem);font-weight:300;line-height:1.05;margin-bottom:0.75rem;">Press Shop</h3>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.42);line-height:1.85;margin-bottom:0.75rem;">Our press shop houses 40+ power press machines capable of hot and cold rolled operations. High-volume sheet metal stampings with precision and consistency.</p>
+          <p style="font-size:0.58rem;color:var(--gc);letter-spacing:0.12em;text-transform:uppercase;">40+ Power Press Machines</p>
+        </div>
       </div>
-      <div class="fac-card reveal">
-        <p class="slabel mb-5">02</p>
-        <h3 style="font-size:clamp(1.3rem,2.5vw,2.2rem);font-weight:300;line-height:1.05;margin-bottom:1rem;">Tool Design &amp; Manufacturing</h3>
-        <p style="font-size:0.68rem;color:rgba(255,255,255,0.42);line-height:1.85;margin-bottom:1rem;">Conventional, CNC, and EDM machines with computer-aided design systems. Our in-house tool room gives us complete control over tooling quality and turnaround.</p>
-        <p style="font-size:0.62rem;color:var(--gc);letter-spacing:0.1em;text-transform:uppercase;">CNC · EDM · Computer-Aided Design</p>
+
+      <div class="fac-card reveal" onclick="openFacLB('tool')" role="button" tabindex="0" aria-label="View Tool Design photos">
+        <div class="fac-img">
+          <img src="assets/img/infrastructure/tool_design1.jpg" alt="Tool Design & Manufacturing" loading="lazy" />
+          <div class="fac-img-overlay"><span>View Photos</span></div>
+        </div>
+        <div class="fac-body">
+          <p class="slabel mb-4">02</p>
+          <h3 style="font-size:clamp(1.1rem,2vw,1.8rem);font-weight:300;line-height:1.05;margin-bottom:0.75rem;">Tool Design &amp; Manufacturing</h3>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.42);line-height:1.85;margin-bottom:0.75rem;">Conventional, CNC, and EDM machines with computer-aided design systems. In-house tool room gives complete control over tooling quality and turnaround.</p>
+          <p style="font-size:0.58rem;color:var(--gc);letter-spacing:0.12em;text-transform:uppercase;">CNC · EDM · Computer-Aided Design</p>
+        </div>
       </div>
-      <div class="fac-card reveal">
-        <p class="slabel mb-5">03</p>
-        <h3 style="font-size:clamp(1.3rem,2.5vw,2.2rem);font-weight:300;line-height:1.05;margin-bottom:1rem;">Machine Shop</h3>
-        <p style="font-size:0.68rem;color:rgba(255,255,255,0.42);line-height:1.85;margin-bottom:1rem;">CNC machines, drilling equipment, SPM, lathes, and tap machines for precision turned components. Covers all requirements for machined brass and steel components.</p>
-        <p style="font-size:0.62rem;color:var(--gc);letter-spacing:0.1em;text-transform:uppercase;">CNC · Drilling · Lathe · SPM · Tap</p>
+
+      <div class="fac-card reveal" onclick="openFacLB('machine')" role="button" tabindex="0" aria-label="View Machine Shop photos">
+        <div class="fac-img">
+          <img src="assets/img/infrastructure/machine_01.jpg" alt="Machine Shop" loading="lazy" />
+          <div class="fac-img-overlay"><span>View Photos</span></div>
+        </div>
+        <div class="fac-body">
+          <p class="slabel mb-4">03</p>
+          <h3 style="font-size:clamp(1.1rem,2vw,1.8rem);font-weight:300;line-height:1.05;margin-bottom:0.75rem;">Machine Shop</h3>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.42);line-height:1.85;margin-bottom:0.75rem;">CNC machines, drilling equipment, SPM, lathes, and tap machines for precision turned components. Covers all requirements for machined brass and steel parts.</p>
+          <p style="font-size:0.58rem;color:var(--gc);letter-spacing:0.12em;text-transform:uppercase;">CNC · Drilling · Lathe · SPM · Tap</p>
+        </div>
       </div>
-      <div class="fac-card reveal">
-        <p class="slabel mb-5">04</p>
-        <h3 style="font-size:clamp(1.3rem,2.5vw,2.2rem);font-weight:300;line-height:1.05;margin-bottom:1rem;">Quality &amp; Inspection</h3>
-        <p style="font-size:0.68rem;color:rgba(255,255,255,0.42);line-height:1.85;margin-bottom:1rem;">Multiple inspection checkpoints during manufacturing ensure near-zero defect output. Equipment includes profile projectors, hardness testers, vernier calipers, and ring &amp; plug gauges.</p>
-        <p style="font-size:0.62rem;color:var(--gc);letter-spacing:0.1em;text-transform:uppercase;">ISO 9001:2015 Quality System</p>
+
+      <div class="fac-card reveal" onclick="openFacLB('quality')" role="button" tabindex="0" aria-label="View Quality & Inspection photos">
+        <div class="fac-img">
+          <img src="assets/img/infrastructure/inspection1.jpg" alt="Quality & Inspection" loading="lazy" />
+          <div class="fac-img-overlay"><span>View Photos</span></div>
+        </div>
+        <div class="fac-body">
+          <p class="slabel mb-4">04</p>
+          <h3 style="font-size:clamp(1.1rem,2vw,1.8rem);font-weight:300;line-height:1.05;margin-bottom:0.75rem;">Quality &amp; Inspection</h3>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.42);line-height:1.85;margin-bottom:0.75rem;">Multiple inspection checkpoints ensure near-zero defect output. Equipment includes profile projectors, hardness testers, vernier calipers, and ring &amp; plug gauges.</p>
+          <p style="font-size:0.58rem;color:var(--gc);letter-spacing:0.12em;text-transform:uppercase;">ISO 9001:2015 Quality System</p>
+        </div>
       </div>
+
     </div>
   </section>
 
   <!-- Values Grid -->
-  <section class="px-[2vw] py-20 md:py-28 border-b border-white/10" aria-labelledby="val-heading">
+  <section class="px-[2vw] py-8 md:py-14 border-b border-white/10" aria-labelledby="val-heading">
     <div class="flex items-center gap-3 mb-6"><span class="slabel">Our Values</span><div class="rl w-10" aria-hidden="true"></div></div>
-    <h2 id="val-heading" style="font-size:clamp(1.6rem,3vw,3rem);font-weight:300;letter-spacing:-0.02em;" class="mb-10 reveal">What Drives Our Manufacturing</h2>
+    <h2 id="val-heading" style="font-size:clamp(1.6rem,3vw,3rem);font-weight:300;letter-spacing:-0.02em;" class="mb-5 md:mb-8 reveal">What Drives Our Manufacturing</h2>
     <div class="flex flex-wrap gap-3 reveal">
       <div class="val-pill">Superior Quality</div>
       <div class="val-pill">Custom Solutions</div>
@@ -164,7 +214,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="px-[2vw] py-20 border-t border-[#4AAB3D]">
+  <section class="px-[2vw] py-10 md:py-16 border-t border-[#4AAB3D]">
     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal">
       <div>
         <h2 style="font-size:clamp(1.8rem,4vw,4rem);font-weight:300;line-height:1;letter-spacing:-0.02em;">Ready to leverage our infrastructure?</h2>
@@ -175,7 +225,17 @@
   </section>
 </main>
 
-<footer class="px-[2vw] pt-16 pb-8 border-t border-white/10">
+<!-- Facility Photo Lightbox -->
+<div id="fac-lb" role="dialog" aria-modal="true" aria-label="Facility photos">
+  <button id="lb-close" onclick="closeFacLB()" aria-label="Close">✕ Close</button>
+  <p id="fac-lb-title"></p>
+  <img id="fac-lb-img" src="" alt="Facility photo" />
+  <div class="lb-dots" id="lb-dots"></div>
+  <button class="lb-nav" id="lb-prev" onclick="changeFacImg(-1)" aria-label="Previous photo">&#8592;</button>
+  <button class="lb-nav" id="lb-next" onclick="changeFacImg(1)" aria-label="Next photo">&#8594;</button>
+</div>
+
+<footer class="px-[2vw] pt-10 pb-6 border-t border-white/10">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
     <div><h3 style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;margin-bottom:1rem;">Deepak Products</h3><p style="font-size:0.65rem;color:rgba(255,255,255,0.35);line-height:1.9;">Sheet metal &amp; brass components manufacturer, Jamnagar, Gujarat. Est. 1985.</p><div class="mt-4"><p class="slabel mb-2">Quick Links</p><nav aria-label="Footer quick links"><a href="about_us.html" class="flink">About Us</a><a href="quality.html" class="flink">Quality</a><a href="infrastructure.html" class="flink">Infrastructure</a><a href="contact_us.html" class="flink">Contact Us</a></nav></div></div>
     <div><p class="slabel mb-4">Sheet Metal</p><nav aria-label="Sheet metal"><a href="sheet_metal_components.html" class="flink">Sheet Metal Components</a><a href="mcb_parts.html" class="flink">MCB Parts</a><a href="brass_electrical_components.html" class="flink">Brass Electrical Components</a><a href="mortise_lock_parts.html" class="flink">Mortise Lock Parts</a><a href="deep_draw_products.html" class="flink">Deep Draw Products</a><a href="brass_and_ms_washers.html" class="flink">Brass &amp; MS Washers</a><a href="brass_fuse_components.html" class="flink">Brass Fuse Components</a></nav></div>
@@ -208,6 +268,53 @@
   document.querySelectorAll('.mm-link').forEach(l=>l.addEventListener('click',()=>{mopen=false;mmenu.classList.remove('open');ml1.style.transform=ml2.style.transform='';ml2.style.width='';}));
   document.querySelectorAll('.reveal').forEach(el=>{gsap.set(el,{opacity:0,y:28});ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:()=>gsap.to(el,{opacity:1,y:0,duration:0.85,ease:'power3.out'})});});
   gsap.set('.page-banner h1',{opacity:0,y:30});gsap.to('.page-banner h1',{opacity:1,y:0,duration:1.0,ease:'power3.out',delay:0.15});
+
+  /* Facility lightbox */
+  const facData = {
+    press:   { title:'Press Shop', imgs:['assets/img/infrastructure/power_press1.jpg','assets/img/infrastructure/power_press2.jpg','assets/img/infrastructure/power_press3.jpg'] },
+    tool:    { title:'Tool Design & Manufacturing', imgs:['assets/img/infrastructure/tool_design1.jpg','assets/img/infrastructure/tool_design2.jpg','assets/img/infrastructure/tool_design3.jpg'] },
+    machine: { title:'Machine Shop', imgs:['assets/img/infrastructure/machine_01.jpg','assets/img/infrastructure/machine_02.jpg','assets/img/infrastructure/machine_03.jpg'] },
+    quality: { title:'Quality & Inspection', imgs:['assets/img/infrastructure/inspection1.jpg','assets/img/infrastructure/inspection2.jpg','assets/img/infrastructure/inspection3.jpg'] }
+  };
+  let curFac = null, curIdx = 0;
+  const lb = document.getElementById('fac-lb');
+  const lbImg = document.getElementById('fac-lb-img');
+  const lbTitle = document.getElementById('fac-lb-title');
+  const lbDots = document.getElementById('lb-dots');
+
+  function openFacLB(fac) {
+    curFac = fac; curIdx = 0;
+    lbTitle.textContent = facData[fac].title;
+    updateLB();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFacLB() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function changeFacImg(dir) {
+    const imgs = facData[curFac].imgs;
+    curIdx = (curIdx + dir + imgs.length) % imgs.length;
+    updateLB();
+  }
+  function updateLB() {
+    const imgs = facData[curFac].imgs;
+    lbImg.src = imgs[curIdx];
+    lbDots.innerHTML = imgs.map((_, i) =>
+      `<div class="lb-dot${i === curIdx ? ' active' : ''}" onclick="curIdx=${i};updateLB()"></div>`
+    ).join('');
+  }
+  lb.addEventListener('click', e => { if (e.target === lb) closeFacLB(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeFacLB();
+    if (e.key === 'ArrowLeft') changeFacImg(-1);
+    if (e.key === 'ArrowRight') changeFacImg(1);
+  });
+  document.querySelectorAll('.fac-card').forEach(card => {
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') card.click(); });
+  });
 })();
 </script>
 </body>
