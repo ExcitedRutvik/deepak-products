@@ -49,7 +49,7 @@
 
   <style>
     :root { --gc: #4AAB3D; --gm: 2vw; --gg: 2vw; }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; overflow-wrap: break-word; word-break: break-word; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; overflow-wrap: break-word; }
     html { font-size: clamp(16px, 1.1vw + 14px, 20px); line-height: 1.3; background: #000; color: #fff; -webkit-font-smoothing: antialiased; }
     body { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif; background: #000; overflow-x: hidden; cursor: none; }
 
@@ -107,7 +107,7 @@
     /* Hero */
     #hero { position: relative; min-height: 100vh; padding: 0 var(--gm); overflow: hidden; }
     .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: repeating-linear-gradient(90deg, rgba(74,171,61,0.04) 0, rgba(74,171,61,0.04) 1px, transparent 1px, transparent calc(100%/8)); }
-    .hero-cols { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 4vw; min-height: 100vh; padding: 80px 0 6vh; align-items: start; }
+    .hero-cols { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 4vw; min-height: 100vh; padding: 80px 0 6vh; }
     .hero-text { display: flex; flex-direction: column; justify-content: flex-start; min-height: 100%; }
     .hero-viz { position: relative; align-self: stretch; }
     .hero-viz-frame { position: absolute; inset: 0; overflow: hidden; }
@@ -667,7 +667,7 @@
 
     <div class="mb-20 max-w-5xl" id="manifesto-wrap">
       <p id="manifesto-text"
-         style="font-size:clamp(1.1rem,2.4vw,2rem); font-weight:300; line-height:1.65; color:rgba(255,255,255,0.15);">
+         style="font-size:clamp(1.1rem,2.4vw,2rem); font-weight:300; line-height:1.65; color:rgba(255,255,255,0.72);">
         We believe in respecting and having faith in our customers. We grow through creativity, invention, and innovation. Our core values include integrating honesty, integrity, and business ethics into all aspects of our business.
       </p>
     </div>
@@ -1055,17 +1055,6 @@
       gsap.set('.prod-card', { opacity: 0, y: 40 });
       ScrollTrigger.create({ trigger: '#products', start: 'top 78%', once: true, onEnter: () => gsap.to('.prod-card', { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }) });
 
-      const mText = document.getElementById('manifesto-text');
-      if (mText) {
-        const raw = mText.textContent.trim();
-        mText.innerHTML = raw.split(/\s+/).map(w => `<span class="mw" style="opacity:0.08;display:inline-block;margin-right:0.28em;">${w}</span>`).join('');
-        ScrollTrigger.create({ trigger: mText, start: 'top 80%', end: 'bottom 35%', scrub: 1.2,
-          onUpdate(self) {
-            const spans = mText.querySelectorAll('.mw'); const total = spans.length;
-            spans.forEach((w, i) => { const t = i / total; const val = self.progress >= t ? Math.min(1, 0.08 + (self.progress - t) * total * 1.4) : 0.08; w.style.opacity = val; });
-          }
-        });
-      }
 
       gsap.set('.pillar', { opacity: 0, y: 30 });
       ScrollTrigger.create({ trigger: '#values', start: 'top 75%', once: true, onEnter: () => gsap.to('.pillar', { opacity: 1, y: 0, duration: 0.85, stagger: 0.14, ease: 'power3.out' }) });
