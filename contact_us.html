@@ -9,7 +9,8 @@
   <meta property="og:type" content="website" /><meta property="og:title" content="Contact Deepak Products – Get Instant Quote" /><meta property="og:description" content="Reach Deepak Products at +91 96627 13385 or sales@deepakproducts.com. Plot 4219, GIDC Phase-III, Jamnagar, Gujarat." /><meta property="og:url" content="https://www.deepakproducts.com/contact_us.html" /><meta property="og:site_name" content="Deepak Products" />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" /></noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{colors:{brand:'#4AAB3D'},fontFamily:{neue:['Space Grotesk','sans-serif']}}}}</script>
   <script type="application/ld+json">
@@ -67,6 +68,8 @@
     .info-row{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
     .info-icon{width:2rem;height:2rem;border:1px solid rgba(74,171,61,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   </style>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
 </head>
 <body class="bg-black text-white">
 <div id="cur"></div><div id="cur-f"></div>
@@ -88,7 +91,7 @@
   </div>
   <div class="hidden md:flex items-center gap-6">
     <span id="navtime" class="nl" style="color:rgba(255,255,255,0.25);">IST 00:00</span>
-    <a href="contact_us.html" class="text-xs tracking-widest uppercase border border-white/25 px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300" style="letter-spacing:0.14em;">Get Quote</a>
+    <a href="contact_us.html#contact-form" class="text-xs tracking-widest uppercase border border-white/25 px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300" style="letter-spacing:0.14em;">Get Quote</a>
   </div>
   <button id="mbtn" class="md:hidden flex flex-col gap-[5px]" aria-label="Open menu"><span class="w-6 h-px bg-white block" id="mline1"></span><span class="w-4 h-px bg-white block" id="mline2"></span></button>
 </nav>
@@ -114,7 +117,7 @@
 
 <main>
   <!-- Contact Section -->
-  <section class="px-[2vw] py-20 md:py-32 border-b border-white/10">
+  <section id="contact-form" class="px-[2vw] py-20 md:py-32 border-b border-white/10" style="scroll-margin-top:80px;">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[6vw]">
       <!-- Form -->
       <div class="reveal">
@@ -201,7 +204,7 @@
     <div><p class="slabel mb-4">Other Products</p><nav aria-label="Other"><a href="crimping_lugs.html" class="flink">Crimping Lugs</a><a href="brass_earth_tag.html" class="flink">Brass Earth Tag</a><a href="brass_turned_components.html" class="flink">Brass Turned Components</a><a href="brass_hex_nuts_and_bolts.html" class="flink">Brass Hex Nuts &amp; Bolts</a><a href="brass_moulding_inserts.html" class="flink">Brass Moulding Inserts</a><a href="customized_components.html" class="flink">Customized Components</a></nav><div class="mt-6"><p class="slabel mb-3">Contact</p><address style="font-size:0.62rem;color:rgba(255,255,255,0.35);line-height:1.9;font-style:normal;">Plot No 4219, Road–F, G.I.D.C. Phase–III,<br/>Dared, Jamnagar–361 005, Gujarat, INDIA<br/><a href="tel:+919662713385" style="color:rgba(255,255,255,0.45);text-decoration:none;">+91 96627 13385</a><br/><a href="mailto:sales@deepakproducts.com" style="color:rgba(255,255,255,0.45);text-decoration:none;">sales@deepakproducts.com</a></address></div></div>
   </div>
   <div class="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-white/8 pt-6">
-    <p style="font-size:0.55rem;color:rgba(255,255,255,0.25);letter-spacing:0.12em;">© Copyright 2025 By Deepak Products | All Rights Reserved.</p>
+    <p style="font-size:0.55rem;color:rgba(255,255,255,0.25);letter-spacing:0.12em;">© Copyright 2026 By Deepak Products | All Rights Reserved.</p>
     <p style="font-size:0.55rem;color:rgba(255,255,255,0.15);letter-spacing:0.08em;">Created By : Web Space Technologies</p>
   </div>
 </footer>
