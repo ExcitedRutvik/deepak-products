@@ -39,7 +39,7 @@
     .nav-item:hover .nav-dd{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
     .nav-dd-section{font-size:0.48rem;letter-spacing:0.22em;color:var(--gc);text-transform:uppercase;padding-bottom:0.5rem;margin-bottom:0.25rem;margin-top:1rem;border-top:1px solid rgba(255,255,255,0.06);}
     .nav-dd-section:first-child{border-top:none;margin-top:0;}
-    .nav-dd-link{display:block;padding:0.32rem 0;font-size:0.57rem;letter-spacing:0.11em;text-transform:uppercase;color:rgba(255,255,255,0.42);text-decoration:none;transition:color 0.2s ease,padding-left 0.2s ease;white-space:nowrap;}
+    .nav-dd-link{display:block;padding:0.32rem 0;font-size:0.57rem;letter-spacing:0.11em;text-transform:uppercase;color:var(--fg-lo);text-decoration:none;transition:color 0.2s ease,padding-left 0.2s ease;white-space:nowrap;}
     .nav-dd-link:hover{color:#fff;padding-left:0.4rem;}
     .rl{height:1px;background:var(--gc);}
     .slabel{font-size:0.55rem;letter-spacing:0.22em;color:var(--gc);text-transform:uppercase;}
@@ -52,7 +52,7 @@
     .cat-card{display:block;border:1px solid rgba(255,255,255,0.08);padding:2rem;text-decoration:none;transition:border-color 0.3s ease,background 0.3s ease;position:relative;overflow:hidden;}
     .cat-card:hover{border-color:rgba(74,171,61,0.5);background:rgba(74,171,61,0.03);}
     .cat-card img{width:100%;height:180px;object-fit:cover;display:block;margin-bottom:1.5rem;filter:grayscale(30%);}
-    .cat-arrow{position:absolute;top:1.25rem;right:1.25rem;font-size:0.7rem;color:rgba(255,255,255,0.2);transition:color 0.3s ease,transform 0.3s ease;}
+    .cat-arrow{position:absolute;top:1.25rem;right:1.25rem;font-size:0.7rem;color:var(--fg-ghost);transition:color 0.3s ease,transform 0.3s ease;}
     .cat-card:hover .cat-arrow{color:var(--gc);transform:translate(3px,-3px);}
   
     /* ── Dark / Light mode ─────────────────────────────────────────────── */
@@ -60,11 +60,17 @@
       --fg-dim: rgba(255,255,255,0.45); --fg-faint: rgba(255,255,255,0.25);
       --border-sub: rgba(255,255,255,0.07); --border-dim: rgba(255,255,255,0.10);
       --border-med: rgba(255,255,255,0.12);
+      --fg-lo: rgba(255,255,255,0.40); --fg-mid: rgba(255,255,255,0.50);
+      --fg-med: rgba(255,255,255,0.60); --fg-hi: rgba(255,255,255,0.70);
+      --fg-ghost: rgba(255,255,255,0.22); --fg-faintest: rgba(255,255,255,0.15);
     }
     html[data-theme="light"] {
       --fg-dim: rgba(17,17,17,0.45); --fg-faint: rgba(17,17,17,0.25);
       --border-sub: rgba(0,0,0,0.07); --border-dim: rgba(0,0,0,0.10);
       --border-med: rgba(0,0,0,0.12);
+      --fg-lo: rgba(17,17,17,0.40); --fg-mid: rgba(17,17,17,0.50);
+      --fg-med: rgba(17,17,17,0.60); --fg-hi: rgba(17,17,17,0.70);
+      --fg-ghost: rgba(17,17,17,0.22); --fg-faintest: rgba(17,17,17,0.15);
     }
     html[data-theme="light"] body,
     html[data-theme="light"] .bg-black { background-color: #F5F5F3 !important; }
@@ -98,6 +104,37 @@
     html[data-theme="light"] .flink { color: rgba(0,0,0,0.45); }
     html[data-theme="light"] .flink:hover { color: #111; }
     html[data-theme="light"] .slabel { color: var(--gc); }
+        /* Additional light-mode overrides */
+    html[data-theme="light"] .text-white\/30 { color: rgba(17,17,17,0.30) !important; }
+    html[data-theme="light"] .text-white\/40 { color: rgba(17,17,17,0.40) !important; }
+    html[data-theme="light"] .text-white\/50 { color: rgba(17,17,17,0.50) !important; }
+    html[data-theme="light"] .text-white\/60 { color: rgba(17,17,17,0.60) !important; }
+    html[data-theme="light"] .bg-white\/15 { background-color: rgba(0,0,0,0.05) !important; }
+    html[data-theme="light"] .bg-white\/50 { background-color: rgba(0,0,0,0.20) !important; }
+    html[data-theme="light"] .border-white\/8 { border-color: rgba(0,0,0,0.08) !important; }
+    html[data-theme="light"] .border-white\/15 { border-color: rgba(0,0,0,0.15) !important; }
+    html[data-theme="light"] .bg-black\/75 { background-color: rgba(0,0,0,0.06) !important; }
+    html[data-theme="light"] .bg-black\/80 { background-color: rgba(0,0,0,0.06) !important; }
+    html[data-theme="light"] .cval { color: #111; }
+    html[data-theme="light"] #nav img { filter: invert(1); }
+    html[data-theme="light"] .nl { color: rgba(0,0,0,0.55) !important; }
+    html[data-theme="light"] [style*="color:#fff"] { color: #111 !important; }
+    html[data-theme="light"] [style*="fill:rgba(255,255,255"] { fill: rgba(17,17,17,0.40) !important; }
+    html[data-theme="light"] .inp,
+    html[data-theme="light"] .sinp {
+      background: rgba(0,0,0,0.04) !important;
+      border-color: rgba(0,0,0,0.15) !important;
+      color: #111 !important;
+    }
+    html[data-theme="light"] .hero-viz-frame { background: #0d0d0d; }
+    html[data-theme="light"] .page-banner { border-bottom-color: rgba(0,0,0,0.08); }
+    html[data-theme="light"] .diff-card,
+    html[data-theme="light"] .sidebar-box { border-color: rgba(0,0,0,0.10); }
+    html[data-theme="light"] .spec-row { border-bottom-color: rgba(0,0,0,0.08); }
+    html[data-theme="light"] .spec-value { color: rgba(17,17,17,0.58); }
+    html[data-theme="light"] .sib-link { border-bottom-color: rgba(0,0,0,0.08); color: rgba(17,17,17,0.55); }
+    html[data-theme="light"] .mat-pill { border-color: rgba(0,0,0,0.12); }
+    html[data-theme="light"] .hover\:text-white:hover { color: #111 !important; }
     /* Toggle button */
     #theme-toggle, #theme-toggle-mob {
       background: none; border: none; cursor: none;
@@ -163,7 +200,7 @@
 <header class="page-banner">
   <div class="banner-grid" aria-hidden="true"></div>
   <div style="position:relative;z-index:1;">
-    <nav aria-label="Breadcrumb" class="mb-6"><ol style="display:flex;align-items:center;gap:0.5rem;list-style:none;"><li><a href="index.html" class="slabel hover:text-white transition-colors">Home</a></li><li style="color:rgba(255,255,255,0.2);font-size:0.55rem;">→</li><li><a href="products.html" class="slabel hover:text-white transition-colors">Products</a></li><li style="color:rgba(255,255,255,0.2);font-size:0.55rem;">→</li><li><span class="slabel" style="color:rgba(255,255,255,0.5);">Sheet Metal Components</span></li></ol></nav>
+    <nav aria-label="Breadcrumb" class="mb-6"><ol style="display:flex;align-items:center;gap:0.5rem;list-style:none;"><li><a href="index.html" class="slabel hover:text-white transition-colors">Home</a></li><li style="color:var(--fg-ghost);font-size:0.55rem;">→</li><li><a href="products.html" class="slabel hover:text-white transition-colors">Products</a></li><li style="color:var(--fg-ghost);font-size:0.55rem;">→</li><li><span class="slabel" style="color:var(--fg-mid);">Sheet Metal Components</span></li></ol></nav>
     <div class="flex items-center gap-3 mb-4"><span class="slabel">Category</span><div class="rl w-10" aria-hidden="true"></div></div>
     <h1 style="font-size:clamp(1.4rem,3.2vw,3.2rem);font-weight:300;line-height:0.95;letter-spacing:-0.025em;" class="reveal">Sheet Metal<br/>Components.</h1>
   </div>
@@ -173,7 +210,7 @@
   <!-- Intro -->
   <section class="px-[2vw] py-8 md:py-14 border-b border-white/10">
     <div class="max-w-3xl reveal">
-      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.9;">
+      <p style="font-size:0.82rem;color:var(--fg-mid);line-height:1.9;">
         We strongly believe in maintaining perfection in quality and standards, which leads to excellence in our profession. Our wide range of capabilities allows for economical, high quality production of sheet metal &amp; turned components. Each component is manufactured under stringent quality procedures with dimensional verification at every stage.
       </p>
     </div>
@@ -189,42 +226,42 @@
         <img src="assets/img/sheet_metal_components/mcb_parts.jpg" alt="MCB Parts – Terminal Cage and Circuit Breaker Components" width="400" height="180" loading="lazy" />
         <p class="slabel mb-2">01</p>
         <h3 style="font-size:1rem;font-weight:400;color:#fff;margin-bottom:0.5rem;">MCB Parts</h3>
-        <p style="font-size:0.62rem;color:rgba(255,255,255,0.38);line-height:1.7;">MCB, MCCB, ELCB &amp; ACB terminal cage components in brass and mild steel.</p>
+        <p style="font-size:0.62rem;color:var(--fg-lo);line-height:1.7;">MCB, MCCB, ELCB &amp; ACB terminal cage components in brass and mild steel.</p>
       </a>
       <a href="brass_electrical_components.html" class="cat-card reveal">
         <span class="cat-arrow" aria-hidden="true">↗</span>
         <img src="assets/img/sheet_metal_components/brass_electrical_components.jpg" alt="Brass Electrical Components – Lugs, Earth Pins, Fuse Holders" width="400" height="180" loading="lazy" />
         <p class="slabel mb-2">02</p>
         <h3 style="font-size:1rem;font-weight:400;color:#fff;margin-bottom:0.5rem;">Brass Electrical Components</h3>
-        <p style="font-size:0.62rem;color:rgba(255,255,255,0.38);line-height:1.7;">Brass lugs, earth pins, fuse holders, terminals and 12+ types of electrical parts.</p>
+        <p style="font-size:0.62rem;color:var(--fg-lo);line-height:1.7;">Brass lugs, earth pins, fuse holders, terminals and 12+ types of electrical parts.</p>
       </a>
       <a href="mortise_lock_parts.html" class="cat-card reveal">
         <span class="cat-arrow" aria-hidden="true">↗</span>
         <img src="assets/img/sheet_metal_components/mortise_lock_parts.jpg" alt="Mortise Lock Parts – Body, Keys, Cylinder Back Plate" width="400" height="180" loading="lazy" />
         <p class="slabel mb-2">03</p>
         <h3 style="font-size:1rem;font-weight:400;color:#fff;margin-bottom:0.5rem;">Mortise Lock Parts</h3>
-        <p style="font-size:0.62rem;color:rgba(255,255,255,0.38);line-height:1.7;">Body, keys, cylinder back plate, dead bolt plates and receptacle components.</p>
+        <p style="font-size:0.62rem;color:var(--fg-lo);line-height:1.7;">Body, keys, cylinder back plate, dead bolt plates and receptacle components.</p>
       </a>
       <a href="deep_draw_products.html" class="cat-card reveal">
         <span class="cat-arrow" aria-hidden="true">↗</span>
         <img src="assets/img/sheet_metal_components/deep_draw_products.jpg" alt="Deep Draw Products – Brass Cups, Rings and Shells" width="400" height="180" loading="lazy" />
         <p class="slabel mb-2">04</p>
         <h3 style="font-size:1rem;font-weight:400;color:#fff;margin-bottom:0.5rem;">Deep Draw Products</h3>
-        <p style="font-size:0.62rem;color:rgba(255,255,255,0.38);line-height:1.7;">Precision deep drawn brass cups, rings, shells and enclosures for diverse industries.</p>
+        <p style="font-size:0.62rem;color:var(--fg-lo);line-height:1.7;">Precision deep drawn brass cups, rings, shells and enclosures for diverse industries.</p>
       </a>
       <a href="brass_and_ms_washers.html" class="cat-card reveal">
         <span class="cat-arrow" aria-hidden="true">↗</span>
         <img src="assets/img/sheet_metal_components/brass_and_ms_washers.jpg" alt="Brass and MS Washers – Flat, Spring and Square Washers" width="400" height="180" loading="lazy" />
         <p class="slabel mb-2">05</p>
         <h3 style="font-size:1rem;font-weight:400;color:#fff;margin-bottom:0.5rem;">Brass &amp; MS Washers</h3>
-        <p style="font-size:0.62rem;color:rgba(255,255,255,0.38);line-height:1.7;">Punched &amp; machined washers meeting DIN, IS, BS and JS standards. Custom sizes.</p>
+        <p style="font-size:0.62rem;color:var(--fg-lo);line-height:1.7;">Punched &amp; machined washers meeting DIN, IS, BS and JS standards. Custom sizes.</p>
       </a>
       <a href="brass_fuse_components.html" class="cat-card reveal">
         <span class="cat-arrow" aria-hidden="true">↗</span>
         <img src="assets/img/sheet_metal_components/brass_fuse_components.jpg" alt="Brass Fuse Components for Modular Switches and Electrical Appliances" width="400" height="180" loading="lazy" />
         <p class="slabel mb-2">06</p>
         <h3 style="font-size:1rem;font-weight:400;color:#fff;margin-bottom:0.5rem;">Brass Fuse Components</h3>
-        <p style="font-size:0.62rem;color:rgba(255,255,255,0.38);line-height:1.7;">High temperature resistant brass fuse components for modular switches and appliances.</p>
+        <p style="font-size:0.62rem;color:var(--fg-lo);line-height:1.7;">High temperature resistant brass fuse components for modular switches and appliances.</p>
       </a>
     </div>
   </section>
@@ -234,7 +271,7 @@
     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal">
       <div>
         <h2 style="font-size:clamp(1.8rem,4vw,4rem);font-weight:300;line-height:1;letter-spacing:-0.02em;">Need a custom sheet metal component?</h2>
-        <p style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:0.75rem;">Share your drawings or specifications and we'll provide a quote within 24 hours.</p>
+        <p style="font-size:0.72rem;color:var(--fg-lo);margin-top:0.75rem;">Share your drawings or specifications and we'll provide a quote within 24 hours.</p>
       </div>
       <a href="contact_us.html#contact-form" class="flex-shrink-0 text-xs tracking-widest uppercase border border-white px-10 py-5 hover:bg-white hover:text-black transition-colors duration-300" style="letter-spacing:0.14em;">Get Instant Quote →</a>
     </div>
@@ -250,7 +287,7 @@
   </div>
   <div class="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-white/8 pt-6">
     <p style="font-size:0.55rem;color:var(--fg-faint);letter-spacing:0.12em;">© Copyright 2026 By Deepak Products | All Rights Reserved.</p>
-    <p style="font-size:0.55rem;color:rgba(255,255,255,0.15);letter-spacing:0.08em;">Created By : Web Space Technologies</p>
+    <p style="font-size:0.55rem;color:var(--fg-faintest);letter-spacing:0.08em;">Created By : Web Space Technologies</p>
   </div>
 </footer>
 

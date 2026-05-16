@@ -181,11 +181,17 @@
       --fg-dim: rgba(255,255,255,0.45); --fg-faint: rgba(255,255,255,0.25);
       --border-sub: rgba(255,255,255,0.07); --border-dim: rgba(255,255,255,0.10);
       --border-med: rgba(255,255,255,0.12);
+      --fg-lo: rgba(255,255,255,0.40); --fg-mid: rgba(255,255,255,0.50);
+      --fg-med: rgba(255,255,255,0.60); --fg-hi: rgba(255,255,255,0.70);
+      --fg-ghost: rgba(255,255,255,0.22); --fg-faintest: rgba(255,255,255,0.15);
     }
     html[data-theme="light"] {
       --fg-dim: rgba(17,17,17,0.45); --fg-faint: rgba(17,17,17,0.25);
       --border-sub: rgba(0,0,0,0.07); --border-dim: rgba(0,0,0,0.10);
       --border-med: rgba(0,0,0,0.12);
+      --fg-lo: rgba(17,17,17,0.40); --fg-mid: rgba(17,17,17,0.50);
+      --fg-med: rgba(17,17,17,0.60); --fg-hi: rgba(17,17,17,0.70);
+      --fg-ghost: rgba(17,17,17,0.22); --fg-faintest: rgba(17,17,17,0.15);
     }
     html[data-theme="light"] body,
     html[data-theme="light"] .bg-black { background-color: #F5F5F3 !important; }
@@ -219,6 +225,37 @@
     html[data-theme="light"] .flink { color: rgba(0,0,0,0.45); }
     html[data-theme="light"] .flink:hover { color: #111; }
     html[data-theme="light"] .slabel { color: var(--gc); }
+        /* Additional light-mode overrides */
+    html[data-theme="light"] .text-white\/30 { color: rgba(17,17,17,0.30) !important; }
+    html[data-theme="light"] .text-white\/40 { color: rgba(17,17,17,0.40) !important; }
+    html[data-theme="light"] .text-white\/50 { color: rgba(17,17,17,0.50) !important; }
+    html[data-theme="light"] .text-white\/60 { color: rgba(17,17,17,0.60) !important; }
+    html[data-theme="light"] .bg-white\/15 { background-color: rgba(0,0,0,0.05) !important; }
+    html[data-theme="light"] .bg-white\/50 { background-color: rgba(0,0,0,0.20) !important; }
+    html[data-theme="light"] .border-white\/8 { border-color: rgba(0,0,0,0.08) !important; }
+    html[data-theme="light"] .border-white\/15 { border-color: rgba(0,0,0,0.15) !important; }
+    html[data-theme="light"] .bg-black\/75 { background-color: rgba(0,0,0,0.06) !important; }
+    html[data-theme="light"] .bg-black\/80 { background-color: rgba(0,0,0,0.06) !important; }
+    html[data-theme="light"] .cval { color: #111; }
+    html[data-theme="light"] #nav img { filter: invert(1); }
+    html[data-theme="light"] .nl { color: rgba(0,0,0,0.55) !important; }
+    html[data-theme="light"] [style*="color:#fff"] { color: #111 !important; }
+    html[data-theme="light"] [style*="fill:rgba(255,255,255"] { fill: rgba(17,17,17,0.40) !important; }
+    html[data-theme="light"] .inp,
+    html[data-theme="light"] .sinp {
+      background: rgba(0,0,0,0.04) !important;
+      border-color: rgba(0,0,0,0.15) !important;
+      color: #111 !important;
+    }
+    html[data-theme="light"] .hero-viz-frame { background: #0d0d0d; }
+    html[data-theme="light"] .page-banner { border-bottom-color: rgba(0,0,0,0.08); }
+    html[data-theme="light"] .diff-card,
+    html[data-theme="light"] .sidebar-box { border-color: rgba(0,0,0,0.10); }
+    html[data-theme="light"] .spec-row { border-bottom-color: rgba(0,0,0,0.08); }
+    html[data-theme="light"] .spec-value { color: rgba(17,17,17,0.58); }
+    html[data-theme="light"] .sib-link { border-bottom-color: rgba(0,0,0,0.08); color: rgba(17,17,17,0.55); }
+    html[data-theme="light"] .mat-pill { border-color: rgba(0,0,0,0.12); }
+    html[data-theme="light"] .hover\:text-white:hover { color: #111 !important; }
     /* Toggle button */
     #theme-toggle, #theme-toggle-mob {
       background: none; border: none; cursor: none;
@@ -532,21 +569,21 @@
           Products.
         </h2>
 
-        <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.85;" class="mb-5">
+        <p style="font-size:0.85rem; color:var(--fg-mid); line-height:1.85;" class="mb-5">
           Experience &amp; expertise in the field of Sheet Metal Components. Established in the year 1985, under the leadership of Mr. Rasikbhai K. Bhut, we have diverse rich experience across Sheet Metal Stamping Components industry.
         </p>
-        <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.85;" class="mb-10">
+        <p style="font-size:0.85rem; color:var(--fg-mid); line-height:1.85;" class="mb-10">
           We are a renowned sheet metal expert and creative entrepreneur. ISO 9001:2015 Certified company with D&amp;B D-UN-S number 65-081-4762 and NSIC SE3B credit rating.
         </p>
 
         <div class="mb-10 space-y-0">
           <div class="flex items-center gap-4 border-t border-white/10 py-4">
             <div style="width:6px;height:6px;border-radius:50%;background:var(--gc);flex-shrink:0;" aria-hidden="true"></div>
-            <span style="font-size:0.75rem; color:rgba(255,255,255,0.6); letter-spacing:0.05em;">Manufacturing of Customized Products</span>
+            <span style="font-size:0.75rem; color:var(--fg-med); letter-spacing:0.05em;">Manufacturing of Customized Products</span>
           </div>
           <div class="flex items-center gap-4 border-t border-white/10 py-4">
             <div style="width:6px;height:6px;border-radius:50%;background:var(--gc);flex-shrink:0;" aria-hidden="true"></div>
-            <span style="font-size:0.75rem; color:rgba(255,255,255,0.6); letter-spacing:0.05em;">Competent &amp; Experienced Workforce</span>
+            <span style="font-size:0.75rem; color:var(--fg-med); letter-spacing:0.05em;">Competent &amp; Experienced Workforce</span>
           </div>
         </div>
 
@@ -734,7 +771,7 @@
 
     <div class="mb-20 max-w-5xl" id="manifesto-wrap">
       <p id="manifesto-text"
-         style="font-size:clamp(1.1rem,2.4vw,2rem); font-weight:300; line-height:1.65; color:rgba(255,255,255,0.72);">
+         style="font-size:clamp(1.1rem,2.4vw,2rem); font-weight:300; line-height:1.65; color:var(--fg-hi);">
         We believe in respecting and having faith in our customers. We grow through creativity, invention, and innovation. Our core values include integrating honesty, integrity, and business ethics into all aspects of our business.
       </p>
     </div>
@@ -743,21 +780,21 @@
       <div class="bg-black p-10 md:p-12 pillar">
         <p class="slabel mb-6">01</p>
         <h3 id="values-heading" style="font-size:clamp(1.6rem,3vw,3rem); font-weight:300; line-height:1.05;" class="mb-5">Excellence</h3>
-        <p style="font-size:0.7rem; color:rgba(255,255,255,0.38); line-height:1.85;">
+        <p style="font-size:0.7rem; color:var(--fg-lo); line-height:1.85;">
           Maintaining perfection in quality and standards — achieving excellence in every component we manufacture for our global clients.
         </p>
       </div>
       <div class="bg-black p-10 md:p-12 border-t md:border-t-0 border-white/10 pillar">
         <p class="slabel mb-6">02</p>
         <h3 style="font-size:clamp(1.6rem,3vw,3rem); font-weight:300; line-height:1.05;" class="mb-5">Innovation</h3>
-        <p style="font-size:0.7rem; color:rgba(255,255,255,0.38); line-height:1.85;">
+        <p style="font-size:0.7rem; color:var(--fg-lo); line-height:1.85;">
           Growing through creativity, invention, and innovation in sheet metal and precision manufacturing processes and product development.
         </p>
       </div>
       <div class="bg-black p-10 md:p-12 border-t md:border-t-0 border-white/10 pillar">
         <p class="slabel mb-6">03</p>
         <h3 style="font-size:clamp(1.6rem,3vw,3rem); font-weight:300; line-height:1.05;" class="mb-5">Commitment</h3>
-        <p style="font-size:0.7rem; color:rgba(255,255,255,0.38); line-height:1.85;">
+        <p style="font-size:0.7rem; color:var(--fg-lo); line-height:1.85;">
           A steadfast commitment to customer needs, timely delivery, and ethical business practices in every facet of our operations.
         </p>
       </div>
@@ -800,28 +837,28 @@
       <li class="pstep prow grid grid-cols-1 md:grid-cols-[3rem_1fr_1fr] gap-4 md:gap-14 items-start">
         <p class="slabel pt-0.5" aria-hidden="true">01</p>
         <h3 style="font-size:clamp(1.4rem,2.8vw,2.4rem); font-weight:300; line-height:1.1;">Raw Material</h3>
-        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85; padding-top:2px;">
+        <p style="font-size:0.75rem; color:var(--fg-lo); line-height:1.85; padding-top:2px;">
           First step of production is to purchase the raw material from our trusted and verified supplier. Materials are purchased as per the standard material grade or customer's specification.
         </p>
       </li>
       <li class="pstep prow grid grid-cols-1 md:grid-cols-[3rem_1fr_1fr] gap-4 md:gap-14 items-start">
         <p class="slabel pt-0.5" aria-hidden="true">02</p>
         <h3 style="font-size:clamp(1.4rem,2.8vw,2.4rem); font-weight:300; line-height:1.1;">Manufacturing</h3>
-        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85; padding-top:2px;">
+        <p style="font-size:0.75rem; color:var(--fg-lo); line-height:1.85; padding-top:2px;">
           Processes include drilling, facing, milling &amp; cutting. Expert engineers oversee measurement, dimensions &amp; quality checking of products at every production stage.
         </p>
       </li>
       <li class="pstep prow grid grid-cols-1 md:grid-cols-[3rem_1fr_1fr] gap-4 md:gap-14 items-start">
         <p class="slabel pt-0.5" aria-hidden="true">03</p>
         <h3 style="font-size:clamp(1.4rem,2.8vw,2.4rem); font-weight:300; line-height:1.1;">Quality Control</h3>
-        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85; padding-top:2px;">
+        <p style="font-size:0.75rem; color:var(--fg-lo); line-height:1.85; padding-top:2px;">
           After production, each item goes to QC Department. The Quality Control Supervisor checks all dimensions and measurements using various quality checking methods and instruments.
         </p>
       </li>
       <li class="pstep prow grid grid-cols-1 md:grid-cols-[3rem_1fr_1fr] gap-4 md:gap-14 items-start">
         <p class="slabel pt-0.5" aria-hidden="true">04</p>
         <h3 style="font-size:clamp(1.4rem,2.8vw,2.4rem); font-weight:300; line-height:1.1;">Packaging</h3>
-        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85; padding-top:2px;">
+        <p style="font-size:0.75rem; color:var(--fg-lo); line-height:1.85; padding-top:2px;">
           After inspection, each order moves to packing location for final check. The packing list is printed and the entire order is carefully packed and dispatched.
         </p>
       </li>
@@ -891,7 +928,7 @@
             style="font-size:clamp(2.5rem,7.5vw,8.5rem); font-weight:300; line-height:0.9; letter-spacing:-0.025em;"
             class="mb-10">
           Let's Work<br/>
-          <em style="color:rgba(255,255,255,0.22); font-style:italic;">Together.</em>
+          <em style="color:var(--fg-ghost); font-style:italic;">Together.</em>
         </h2>
         <a href="contact_us.html#contact-form"
            class="inline-flex items-center gap-4 text-xs tracking-widest uppercase
@@ -906,7 +943,7 @@
       <address class="space-y-8 not-italic">
         <div>
           <p class="slabel mb-3">Location</p>
-          <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); line-height:1.85;">
+          <p style="font-size:0.75rem; color:var(--fg-mid); line-height:1.85;">
             Plot No 4219, Road – F, Shree Lal Bapu Road,<br/>
             G.I.D.C., Phase – III, Dared,<br/>
             Jamnagar – 361 005, Gujarat – INDIA.
@@ -914,17 +951,17 @@
         </div>
         <div class="border-t border-white/10 pt-8">
           <p class="slabel mb-3">Call For Support</p>
-          <a href="tel:+919662713385" style="font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; margin-bottom:4px; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">+91 96627 13385</a>
-          <a href="tel:+918866751091" style="font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">+91 88667 51091</a>
+          <a href="tel:+919662713385" style="font-size:0.75rem; color:var(--fg-hi); display:block; margin-bottom:4px; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">+91 96627 13385</a>
+          <a href="tel:+918866751091" style="font-size:0.75rem; color:var(--fg-hi); display:block; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">+91 88667 51091</a>
         </div>
         <div class="border-t border-white/10 pt-8">
           <p class="slabel mb-3">Send E-Mail</p>
-          <a href="mailto:sales@deepakproducts.com" style="font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; margin-bottom:4px; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">sales@deepakproducts.com</a>
-          <a href="mailto:pratik@deepakproducts.com" style="font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">pratik@deepakproducts.com</a>
+          <a href="mailto:sales@deepakproducts.com" style="font-size:0.75rem; color:var(--fg-hi); display:block; margin-bottom:4px; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">sales@deepakproducts.com</a>
+          <a href="mailto:pratik@deepakproducts.com" style="font-size:0.75rem; color:var(--fg-hi); display:block; text-decoration:none; transition:color 0.3s ease;" class="hover:text-white">pratik@deepakproducts.com</a>
         </div>
         <div class="border-t border-white/10 pt-8">
           <p class="slabel mb-3">Working Hours</p>
-          <p style="font-size:0.75rem; color:rgba(255,255,255,0.5);">Sat – Thu: 9:00 AM To 7:30 PM</p>
+          <p style="font-size:0.75rem; color:var(--fg-mid);">Sat – Thu: 9:00 AM To 7:30 PM</p>
           <p style="font-size:0.75rem; color:var(--fg-faint);">Friday: Closed</p>
         </div>
       </address>
@@ -1005,7 +1042,7 @@
 
     <div class="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-white/8 pt-6">
       <p style="font-size:0.55rem; color:var(--fg-faint); letter-spacing:0.12em;">© Copyright 2026 By Deepak Products | All Rights Reserved.</p>
-      <p style="font-size:0.55rem; color:rgba(255,255,255,0.15); letter-spacing:0.08em;">Created By : Web Space Technologies</p>
+      <p style="font-size:0.55rem; color:var(--fg-faintest); letter-spacing:0.08em;">Created By : Web Space Technologies</p>
     </div>
 
   </footer>

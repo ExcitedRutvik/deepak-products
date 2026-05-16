@@ -66,11 +66,17 @@
       --fg-dim: rgba(255,255,255,0.45); --fg-faint: rgba(255,255,255,0.25);
       --border-sub: rgba(255,255,255,0.07); --border-dim: rgba(255,255,255,0.10);
       --border-med: rgba(255,255,255,0.12);
+      --fg-lo: rgba(255,255,255,0.40); --fg-mid: rgba(255,255,255,0.50);
+      --fg-med: rgba(255,255,255,0.60); --fg-hi: rgba(255,255,255,0.70);
+      --fg-ghost: rgba(255,255,255,0.22); --fg-faintest: rgba(255,255,255,0.15);
     }
     html[data-theme="light"] {
       --fg-dim: rgba(17,17,17,0.45); --fg-faint: rgba(17,17,17,0.25);
       --border-sub: rgba(0,0,0,0.07); --border-dim: rgba(0,0,0,0.10);
       --border-med: rgba(0,0,0,0.12);
+      --fg-lo: rgba(17,17,17,0.40); --fg-mid: rgba(17,17,17,0.50);
+      --fg-med: rgba(17,17,17,0.60); --fg-hi: rgba(17,17,17,0.70);
+      --fg-ghost: rgba(17,17,17,0.22); --fg-faintest: rgba(17,17,17,0.15);
     }
     html[data-theme="light"] body,
     html[data-theme="light"] .bg-black { background-color: #F5F5F3 !important; }
@@ -104,6 +110,37 @@
     html[data-theme="light"] .flink { color: rgba(0,0,0,0.45); }
     html[data-theme="light"] .flink:hover { color: #111; }
     html[data-theme="light"] .slabel { color: var(--gc); }
+        /* Additional light-mode overrides */
+    html[data-theme="light"] .text-white\/30 { color: rgba(17,17,17,0.30) !important; }
+    html[data-theme="light"] .text-white\/40 { color: rgba(17,17,17,0.40) !important; }
+    html[data-theme="light"] .text-white\/50 { color: rgba(17,17,17,0.50) !important; }
+    html[data-theme="light"] .text-white\/60 { color: rgba(17,17,17,0.60) !important; }
+    html[data-theme="light"] .bg-white\/15 { background-color: rgba(0,0,0,0.05) !important; }
+    html[data-theme="light"] .bg-white\/50 { background-color: rgba(0,0,0,0.20) !important; }
+    html[data-theme="light"] .border-white\/8 { border-color: rgba(0,0,0,0.08) !important; }
+    html[data-theme="light"] .border-white\/15 { border-color: rgba(0,0,0,0.15) !important; }
+    html[data-theme="light"] .bg-black\/75 { background-color: rgba(0,0,0,0.06) !important; }
+    html[data-theme="light"] .bg-black\/80 { background-color: rgba(0,0,0,0.06) !important; }
+    html[data-theme="light"] .cval { color: #111; }
+    html[data-theme="light"] #nav img { filter: invert(1); }
+    html[data-theme="light"] .nl { color: rgba(0,0,0,0.55) !important; }
+    html[data-theme="light"] [style*="color:#fff"] { color: #111 !important; }
+    html[data-theme="light"] [style*="fill:rgba(255,255,255"] { fill: rgba(17,17,17,0.40) !important; }
+    html[data-theme="light"] .inp,
+    html[data-theme="light"] .sinp {
+      background: rgba(0,0,0,0.04) !important;
+      border-color: rgba(0,0,0,0.15) !important;
+      color: #111 !important;
+    }
+    html[data-theme="light"] .hero-viz-frame { background: #0d0d0d; }
+    html[data-theme="light"] .page-banner { border-bottom-color: rgba(0,0,0,0.08); }
+    html[data-theme="light"] .diff-card,
+    html[data-theme="light"] .sidebar-box { border-color: rgba(0,0,0,0.10); }
+    html[data-theme="light"] .spec-row { border-bottom-color: rgba(0,0,0,0.08); }
+    html[data-theme="light"] .spec-value { color: rgba(17,17,17,0.58); }
+    html[data-theme="light"] .sib-link { border-bottom-color: rgba(0,0,0,0.08); color: rgba(17,17,17,0.55); }
+    html[data-theme="light"] .mat-pill { border-color: rgba(0,0,0,0.12); }
+    html[data-theme="light"] .hover\:text-white:hover { color: #111 !important; }
     /* Toggle button */
     #theme-toggle, #theme-toggle-mob {
       background: none; border: none; cursor: none;
@@ -219,8 +256,8 @@
     <nav aria-label="Breadcrumb" class="mb-6">
       <ol style="display:flex;align-items:center;gap:0.5rem;list-style:none;">
         <li><a href="index.html" class="slabel hover:text-white transition-colors">Home</a></li>
-        <li style="color:rgba(255,255,255,0.2);font-size:0.55rem;">→</li>
-        <li><span class="slabel" style="color:rgba(255,255,255,0.5);">About Us</span></li>
+        <li style="color:var(--fg-ghost);font-size:0.55rem;">→</li>
+        <li><span class="slabel" style="color:var(--fg-mid);">About Us</span></li>
       </ol>
     </nav>
     <div class="flex items-center gap-3 mb-4">
@@ -251,10 +288,10 @@
         <h2 style="font-size:clamp(1.6rem,3.5vw,3.5rem); font-weight:300; line-height:1.05; letter-spacing:-0.02em;" class="mb-8">
           The unrivaled industry leader with a rich legacy spanning over 35 years.
         </h2>
-        <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.9;" class="mb-5">
+        <p style="font-size:0.85rem; color:var(--fg-mid); line-height:1.9;" class="mb-5">
           Established in the year 1985, under the leadership of Mr. Rasikbhai K. Bhut, Deepak Products has built diverse rich experience across the Sheet Metal Stamping Components industry. We serve power generation, petrochemical, aerospace, and diverse industrial sectors, providing precision metal products and manufacturing solutions.
         </p>
-        <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.9;" class="mb-8">
+        <p style="font-size:0.85rem; color:var(--fg-mid); line-height:1.9;" class="mb-8">
           We are an ISO 9001:2015 certified company with D&amp;B D-UN-S number 65-081-4762 and NSIC SE3B credit rating — recognized for consistent quality and reliability by global clients across 10+ countries.
         </p>
         <div class="flex flex-wrap gap-3">
@@ -276,21 +313,21 @@
       <div class="bg-black p-10 md:p-12 reveal">
         <p class="slabel mb-6">Vision</p>
         <h2 id="vmc-heading" style="font-size:clamp(1.4rem,2.5vw,2.5rem); font-weight:300; line-height:1.05;" class="mb-6">Global Leader in Precision Manufacturing.</h2>
-        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85;">
+        <p style="font-size:0.75rem; color:var(--fg-lo); line-height:1.85;">
           To be a global leader in precision manufacturing, setting new benchmarks in quality, reliability &amp; innovation.
         </p>
       </div>
       <div class="bg-black p-10 md:p-12 border-t md:border-t-0 border-white/10 reveal">
         <p class="slabel mb-6">Mission</p>
         <h3 style="font-size:clamp(1.4rem,2.5vw,2.5rem); font-weight:300; line-height:1.05;" class="mb-6">Deliver Quality Through Innovation.</h3>
-        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85;">
+        <p style="font-size:0.75rem; color:var(--fg-lo); line-height:1.85;">
           Continual improvement in products and processes by innovation means to deliver quality products to customers.
         </p>
       </div>
       <div class="bg-black p-10 md:p-12 border-t md:border-t-0 border-white/10 reveal">
         <p class="slabel mb-6">Commitment</p>
         <h3 style="font-size:clamp(1.4rem,2.5vw,2.5rem); font-weight:300; line-height:1.05;" class="mb-6">Exceed Customer Expectations.</h3>
-        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.85;">
+        <p style="font-size:0.75rem; color:var(--fg-lo); line-height:1.85;">
           Understand and exceed the expectations of our valued customers, while delivering high quality products &amp; solutions.
         </p>
       </div>
@@ -324,32 +361,32 @@
       <div class="diff-card reveal">
         <p class="slabel mb-4">01</p>
         <h3 style="font-size:1rem; font-weight:300; line-height:1.1; margin-bottom:0.75rem;">Experience &amp; Expertise</h3>
-        <p style="font-size:0.68rem; color:rgba(255,255,255,0.42); line-height:1.85;">Decades of manufacturing industry knowledge built since 1985 across diverse industrial sectors.</p>
+        <p style="font-size:0.68rem; color:var(--fg-lo); line-height:1.85;">Decades of manufacturing industry knowledge built since 1985 across diverse industrial sectors.</p>
       </div>
       <div class="diff-card reveal">
         <p class="slabel mb-4">02</p>
         <h3 style="font-size:1rem; font-weight:300; line-height:1.1; margin-bottom:0.75rem;">Advanced Manufacturing</h3>
-        <p style="font-size:0.68rem; color:rgba(255,255,255,0.42); line-height:1.85;">CNC &amp; VMC technology for precision components — in-house tool room with EDM and conventional machines.</p>
+        <p style="font-size:0.68rem; color:var(--fg-lo); line-height:1.85;">CNC &amp; VMC technology for precision components — in-house tool room with EDM and conventional machines.</p>
       </div>
       <div class="diff-card reveal">
         <p class="slabel mb-4">03</p>
         <h3 style="font-size:1rem; font-weight:300; line-height:1.1; margin-bottom:0.75rem;">Unmatched Quality Standards</h3>
-        <p style="font-size:0.68rem; color:rgba(255,255,255,0.42); line-height:1.85;">Rigorous quality checks at every production stage, ISO 9001:2015 certified processes meeting international standards.</p>
+        <p style="font-size:0.68rem; color:var(--fg-lo); line-height:1.85;">Rigorous quality checks at every production stage, ISO 9001:2015 certified processes meeting international standards.</p>
       </div>
       <div class="diff-card reveal">
         <p class="slabel mb-4">04</p>
         <h3 style="font-size:1rem; font-weight:300; line-height:1.1; margin-bottom:0.75rem;">Tailored Engineering Solutions</h3>
-        <p style="font-size:0.68rem; color:rgba(255,255,255,0.42); line-height:1.85;">Customized machining for diverse applications — any size, material, or finish as per customer specifications.</p>
+        <p style="font-size:0.68rem; color:var(--fg-lo); line-height:1.85;">Customized machining for diverse applications — any size, material, or finish as per customer specifications.</p>
       </div>
       <div class="diff-card reveal">
         <p class="slabel mb-4">05</p>
         <h3 style="font-size:1rem; font-weight:300; line-height:1.1; margin-bottom:0.75rem;">Competitive Pricing</h3>
-        <p style="font-size:0.68rem; color:rgba(255,255,255,0.42); line-height:1.85;">World-class quality maintained without premium costs — economical production of sheet metal &amp; turned components.</p>
+        <p style="font-size:0.68rem; color:var(--fg-lo); line-height:1.85;">World-class quality maintained without premium costs — economical production of sheet metal &amp; turned components.</p>
       </div>
       <div class="diff-card reveal">
         <p class="slabel mb-4">06</p>
         <h3 style="font-size:1rem; font-weight:300; line-height:1.1; margin-bottom:0.75rem;">On-Time Delivery</h3>
-        <p style="font-size:0.68rem; color:rgba(255,255,255,0.42); line-height:1.85;">Efficient project completion commitment — systematic 4-step production process ensures timely dispatch of every order.</p>
+        <p style="font-size:0.68rem; color:var(--fg-lo); line-height:1.85;">Efficient project completion commitment — systematic 4-step production process ensures timely dispatch of every order.</p>
       </div>
     </div>
   </section>
@@ -359,7 +396,7 @@
     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal">
       <div>
         <h2 style="font-size:clamp(1.8rem,4vw,4rem); font-weight:300; line-height:1; letter-spacing:-0.02em;">Ready to start a project?</h2>
-        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); margin-top:0.75rem;">Contact us for a free quote on your sheet metal or brass component requirements.</p>
+        <p style="font-size:0.72rem; color:var(--fg-lo); margin-top:0.75rem;">Contact us for a free quote on your sheet metal or brass component requirements.</p>
       </div>
       <a href="contact_us.html#contact-form" class="flex-shrink-0 text-xs tracking-widest uppercase border border-white px-8 py-4 hover:bg-white hover:text-black transition-colors duration-300" style="letter-spacing:0.14em;">
         Get Instant Quote →
@@ -428,7 +465,7 @@
   </div>
   <div class="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-white/8 pt-6">
     <p style="font-size:0.55rem; color:var(--fg-faint); letter-spacing:0.12em;">© Copyright 2026 By Deepak Products | All Rights Reserved.</p>
-    <p style="font-size:0.55rem; color:rgba(255,255,255,0.15); letter-spacing:0.08em;">Created By : Web Space Technologies</p>
+    <p style="font-size:0.55rem; color:var(--fg-faintest); letter-spacing:0.08em;">Created By : Web Space Technologies</p>
   </div>
 </footer>
 
