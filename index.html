@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script>try{if(localStorage.getItem('dp-theme')=='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -159,7 +159,7 @@
     .cval { font-size: clamp(2.8rem,7vw,7rem); font-weight: 300; line-height: 1; letter-spacing: -0.02em; }
 
     /* Footer link */
-    .flink { font-size: 0.7rem; color: rgba(255,255,255,0.45); text-decoration: none; display: block; transition: color 0.3s ease; margin-bottom: 0.4rem; }
+    .flink { font-size: 0.7rem; color:var(--fg-dim); text-decoration: none; display: block; transition: color 0.3s ease; margin-bottom: 0.4rem; }
     .flink:hover { color: #fff; }
 
     /* Mobile menu */
@@ -174,6 +174,69 @@
       .mask > span { transform: none; }
       .mq-track { animation: none; }
       .spill { animation: none; }
+    }
+  
+    /* ── Dark / Light mode ─────────────────────────────────────────────── */
+    :root {
+      --fg-dim: rgba(255,255,255,0.45); --fg-faint: rgba(255,255,255,0.25);
+      --border-sub: rgba(255,255,255,0.07); --border-dim: rgba(255,255,255,0.10);
+      --border-med: rgba(255,255,255,0.12);
+    }
+    html[data-theme="light"] {
+      --fg-dim: rgba(17,17,17,0.45); --fg-faint: rgba(17,17,17,0.25);
+      --border-sub: rgba(0,0,0,0.07); --border-dim: rgba(0,0,0,0.10);
+      --border-med: rgba(0,0,0,0.12);
+    }
+    html[data-theme="light"] body,
+    html[data-theme="light"] .bg-black { background-color: #F5F5F3 !important; }
+    html[data-theme="light"] { background: #F5F5F3; color: #111; }
+    html[data-theme="light"] #nav { background: rgba(245,245,243,0.92) !important; border-bottom-color: rgba(0,0,0,0.08) !important; }
+    html[data-theme="light"] .nl { color: rgba(0,0,0,0.55); }
+    html[data-theme="light"] .nl:hover { color: #111; }
+    html[data-theme="light"] .nav-dd { background: rgba(245,245,243,0.98); border-color: rgba(0,0,0,0.08); }
+    html[data-theme="light"] .nav-dd-link { color: rgba(0,0,0,0.42); }
+    html[data-theme="light"] .nav-dd-link:hover { color: #111; }
+    html[data-theme="light"] .nav-dd-section { border-top-color: rgba(0,0,0,0.06); }
+    html[data-theme="light"] #mmenu { background: #F5F5F3; }
+    html[data-theme="light"] #mline1,
+    html[data-theme="light"] #mline2 { background: #111; }
+    html[data-theme="light"] .hero-viz-frame::after { background: linear-gradient(to top,#F5F5F3 0%,rgba(245,245,243,0) 100%) !important; }
+    html[data-theme="light"] #preloader { background: #F5F5F3; }
+    html[data-theme="light"] #pre-label { color: rgba(0,0,0,0.3); }
+    html[data-theme="light"] #cur::before,
+    html[data-theme="light"] #cur::after { background: rgba(0,0,0,0.75); }
+    html[data-theme="light"] #cur-f { background: #111; }
+    html[data-theme="light"] .text-white { color: #111 !important; }
+    html[data-theme="light"] .text-white\/70 { color: rgba(17,17,17,0.7) !important; }
+    html[data-theme="light"] .border-white\/10 { border-color: rgba(0,0,0,0.10) !important; }
+    html[data-theme="light"] .border-white\/25 { border-color: rgba(0,0,0,0.25) !important; }
+    html[data-theme="light"] .border-white { border-color: rgba(0,0,0,0.80) !important; }
+    html[data-theme="light"] .bg-white\/10 { background-color: rgba(0,0,0,0.06) !important; }
+    html[data-theme="light"] .hover\:bg-white:hover { background-color: #111 !important; color: #F5F5F3 !important; }
+    html[data-theme="light"] .hover\:text-black:hover { color: #F5F5F3 !important; }
+    html[data-theme="light"] .vpill { border-color: rgba(0,0,0,0.12); }
+    html[data-theme="light"] .pstep { border-top-color: rgba(0,0,0,0.12); }
+    html[data-theme="light"] .flink { color: rgba(0,0,0,0.45); }
+    html[data-theme="light"] .flink:hover { color: #111; }
+    html[data-theme="light"] .slabel { color: var(--gc); }
+    /* Toggle button */
+    #theme-toggle, #theme-toggle-mob {
+      background: none; border: none; cursor: none;
+      padding: 2px; display: flex; align-items: center;
+      color: inherit; opacity: 0.55; transition: opacity 0.3s ease;
+    }
+    #theme-toggle:hover, #theme-toggle-mob:hover { opacity: 1; }
+    #theme-toggle .t-sun, #theme-toggle-mob .t-sun { display: none; }
+    #theme-toggle .t-moon, #theme-toggle-mob .t-moon { display: block; }
+    html[data-theme="light"] #theme-toggle .t-sun,
+    html[data-theme="light"] #theme-toggle-mob .t-sun { display: block; }
+    html[data-theme="light"] #theme-toggle .t-moon,
+    html[data-theme="light"] #theme-toggle-mob .t-moon { display: none; }
+    /* Mobile theme row */
+    #theme-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.85rem 0 0; margin-top: 0.85rem;
+      border-top: 1px solid var(--border-dim);
     }
   </style>
 
@@ -304,7 +367,9 @@
     </div>
 
     <div class="hidden lg:flex items-center gap-6">
-      <span id="navtime" class="nl" style="color:rgba(255,255,255,0.25);">IST 00:00</span>
+      <span id="navtime" class="nl" style="color:var(--fg-faint);">IST 00:00</span>
+      
+      <button id="theme-toggle" aria-label="Toggle light / dark theme"><svg class="t-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg><svg class="t-sun"  width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
       <a href="contact_us.html#contact-form"
          class="text-xs tracking-widest uppercase border border-white/25 px-4 py-2
                 hover:bg-white hover:text-black transition-colors duration-300"
@@ -329,7 +394,9 @@
       <a href="infrastructure.html" class="block text-4xl font-light mm-link" style="line-height:1.1;">Infrastructure</a>
       <a href="contact_us.html"    class="block text-4xl font-light mm-link" style="line-height:1.1;">Contact Us</a>
     </div>
-    <div class="border-t border-white/10 pt-6 flex justify-between items-end">
+    
+  <div id="theme-row"><span class="slabel">Theme</span><button id="theme-toggle-mob" aria-label="Toggle light / dark theme"><svg class="t-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg><svg class="t-sun"  width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div>
+  <div class="border-t border-white/10 pt-6 flex justify-between items-end">
       <div>
         <p class="slabel mb-2">Phone</p>
         <a href="tel:+919662713385" class="text-sm text-white/70">+91 96627 13385</a>
@@ -365,7 +432,7 @@
         </h1>
 
         <div id="hero-bottom" class="flex flex-col gap-5 items-start" style="opacity:0; transform:translateY(20px);">
-          <p style="font-size:0.75rem; color:rgba(255,255,255,0.45); line-height:1.8;">
+          <p style="font-size:0.75rem; color:var(--fg-dim); line-height:1.8;">
             One stop solution for sheet metal &amp; brass components.<br/>
             Customized solutions for various applications.
           </p>
@@ -397,7 +464,7 @@
       <div class="w-px h-14 bg-white/15 relative overflow-hidden">
         <div class="spill w-full h-1/2 bg-white/50 absolute top-0"></div>
       </div>
-      <span style="font-size:0.5rem; letter-spacing:0.3em; color:rgba(255,255,255,0.25); text-transform:uppercase; writing-mode:vertical-rl;">Scroll</span>
+      <span style="font-size:0.5rem; letter-spacing:0.3em; color:var(--fg-faint); text-transform:uppercase; writing-mode:vertical-rl;">Scroll</span>
     </div>
   </section>
 
@@ -407,30 +474,30 @@
   <!-- ═══════════════════════════════ MARQUEE ═══════════════════════════════ -->
   <div class="overflow-hidden py-4 border-b border-white/8" aria-hidden="true">
     <div class="mq-track">
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">Sheet Metal Components</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">Sheet Metal Components</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">Brass Turned Components</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">Brass Turned Components</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">ISO 9001:2015 Certified</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">ISO 9001:2015 Certified</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">650+ Finished Products</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">650+ Finished Products</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">10+ Countries Served</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">10+ Countries Served</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">700+ Satisfied Clients</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">700+ Satisfied Clients</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
       <!-- duplicate for seamless loop -->
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">Sheet Metal Components</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">Sheet Metal Components</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">Brass Turned Components</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">Brass Turned Components</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">ISO 9001:2015 Certified</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">ISO 9001:2015 Certified</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">650+ Finished Products</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">650+ Finished Products</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">10+ Countries Served</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">10+ Countries Served</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
-      <span style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(255,255,255,0.25); text-transform:uppercase;">700+ Satisfied Clients</span>
+      <span style="font-size:0.55rem; letter-spacing:0.28em; color:var(--fg-faint); text-transform:uppercase;">700+ Satisfied Clients</span>
       <span style="color:#4AAB3D; font-size:0.7rem;">✦</span>
     </div>
   </div>
@@ -461,7 +528,7 @@
 
         <h2 id="about-heading" style="font-size:clamp(2rem,5vw,5rem); font-weight:300; line-height:1; letter-spacing:-0.02em;" class="mb-10">
           Welcome To<br/>
-          <em style="color:rgba(255,255,255,0.3); font-style:italic;">Deepak</em><br/>
+          <em style="color:var(--fg-faint); font-style:italic;">Deepak</em><br/>
           Products.
         </h2>
 
@@ -501,29 +568,29 @@
         <span class="slabel">03 / Achievements</span>
         <div class="rl w-10" aria-hidden="true"></div>
       </div>
-      <p id="stats-heading" style="font-size:0.7rem; color:rgba(255,255,255,0.3); letter-spacing:0.15em; text-transform:uppercase;">Numbers Speaks Our Past &amp; Future</p>
+      <p id="stats-heading" style="font-size:0.7rem; color:var(--fg-faint); letter-spacing:0.15em; text-transform:uppercase;">Numbers Speaks Our Past &amp; Future</p>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
       <div class="stat-item border-r border-white/10 pr-8 pb-8 md:pb-0">
         <p class="cval" data-target="650">0</p>
         <p style="color:var(--gc); font-size:1.8rem; font-weight:300; line-height:1;" aria-hidden="true">+</p>
-        <p style="font-size:0.55rem; color:rgba(255,255,255,0.35); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Finished Products</p>
+        <p style="font-size:0.55rem; color:var(--fg-dim); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Finished Products</p>
       </div>
       <div class="stat-item md:border-r border-white/10 px-8 pb-8 md:pb-0">
         <p class="cval" data-target="55">0</p>
         <p style="color:var(--gc); font-size:1.8rem; font-weight:300; line-height:1;" aria-hidden="true">+</p>
-        <p style="font-size:0.55rem; color:rgba(255,255,255,0.35); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Team Members</p>
+        <p style="font-size:0.55rem; color:var(--fg-dim); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Team Members</p>
       </div>
       <div class="stat-item border-r border-white/10 pl-0 pr-4 md:px-8 pt-8 md:pt-0">
         <p class="cval" data-target="10">0</p>
         <p style="color:var(--gc); font-size:1.8rem; font-weight:300; line-height:1;" aria-hidden="true">+</p>
-        <p style="font-size:0.55rem; color:rgba(255,255,255,0.35); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Countries Served</p>
+        <p style="font-size:0.55rem; color:var(--fg-dim); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Countries Served</p>
       </div>
       <div class="stat-item pl-8 pt-8 md:pt-0">
         <p class="cval" data-target="700">0</p>
         <p style="color:var(--gc); font-size:1.8rem; font-weight:300; line-height:1;" aria-hidden="true">+</p>
-        <p style="font-size:0.55rem; color:rgba(255,255,255,0.35); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Satisfied Clients</p>
+        <p style="font-size:0.55rem; color:var(--fg-dim); letter-spacing:0.22em; text-transform:uppercase; margin-top:0.6rem;">Satisfied Clients</p>
       </div>
     </div>
   </section>
@@ -562,9 +629,9 @@
             <div>
               <p class="slabel mb-2">01</p>
               <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">MCB Parts</h3>
-              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Sheet Metal Components</p>
+              <p style="font-size:0.65rem; color:var(--fg-dim); margin-top:3px; letter-spacing:0.06em;">Sheet Metal Components</p>
             </div>
-            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+            <span style="color:var(--fg-faint); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
           </div>
         </div>
       </a>
@@ -579,9 +646,9 @@
             <div>
               <p class="slabel mb-2">02</p>
               <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Brass Electrical Components</h3>
-              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Electrical</p>
+              <p style="font-size:0.65rem; color:var(--fg-dim); margin-top:3px; letter-spacing:0.06em;">Electrical</p>
             </div>
-            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+            <span style="color:var(--fg-faint); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
           </div>
         </div>
       </a>
@@ -596,9 +663,9 @@
             <div>
               <p class="slabel mb-2">03</p>
               <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Brass Modular Socket Parts</h3>
-              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Modular Socket / Switch</p>
+              <p style="font-size:0.65rem; color:var(--fg-dim); margin-top:3px; letter-spacing:0.06em;">Modular Socket / Switch</p>
             </div>
-            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+            <span style="color:var(--fg-faint); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
           </div>
         </div>
       </a>
@@ -613,9 +680,9 @@
             <div>
               <p class="slabel mb-2">04</p>
               <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Crimping Lugs</h3>
-              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Electrical Components</p>
+              <p style="font-size:0.65rem; color:var(--fg-dim); margin-top:3px; letter-spacing:0.06em;">Electrical Components</p>
             </div>
-            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+            <span style="color:var(--fg-faint); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
           </div>
         </div>
       </a>
@@ -630,9 +697,9 @@
             <div>
               <p class="slabel mb-2">05</p>
               <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Brass Turned Components</h3>
-              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Precision Components</p>
+              <p style="font-size:0.65rem; color:var(--fg-dim); margin-top:3px; letter-spacing:0.06em;">Precision Components</p>
             </div>
-            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+            <span style="color:var(--fg-faint); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
           </div>
         </div>
       </a>
@@ -647,9 +714,9 @@
             <div>
               <p class="slabel mb-2">06</p>
               <h3 style="font-size:1rem; font-weight:300; line-height:1.3;">Customized Components</h3>
-              <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:3px; letter-spacing:0.06em;">Bespoke Manufacturing</p>
+              <p style="font-size:0.65rem; color:var(--fg-dim); margin-top:3px; letter-spacing:0.06em;">Bespoke Manufacturing</p>
             </div>
-            <span style="color:rgba(255,255,255,0.25); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
+            <span style="color:var(--fg-faint); font-size:0.9rem; transition:all 0.3s ease;" class="group-hover:text-white group-hover:translate-x-1 inline-block" aria-hidden="true">→</span>
           </div>
         </div>
       </a>
@@ -724,7 +791,7 @@
       <h2 id="process-heading" style="font-size:clamp(2rem,5vw,5rem); font-weight:300; line-height:1; letter-spacing:-0.02em;">
         How We<br/>Work.
       </h2>
-      <p style="font-size:0.7rem; color:rgba(255,255,255,0.35); max-width:18rem; line-height:1.85;">
+      <p style="font-size:0.7rem; color:var(--fg-dim); max-width:18rem; line-height:1.85;">
         Our systematic 4-step production process ensures every component meets world-class quality standards.
       </p>
     </div>
@@ -773,7 +840,7 @@
       <h2 id="industries-heading" style="font-size:clamp(2rem,5vw,5rem); font-weight:300; line-height:1; letter-spacing:-0.02em;">
         Industries<br/>We Serve.
       </h2>
-      <p style="font-size:0.7rem; color:rgba(255,255,255,0.35); max-width:18rem; line-height:1.85;">
+      <p style="font-size:0.7rem; color:var(--fg-dim); max-width:18rem; line-height:1.85;">
         We serve a wide range of industries, adapting our services to suit diverse applications and requirements.
       </p>
     </div>
@@ -858,7 +925,7 @@
         <div class="border-t border-white/10 pt-8">
           <p class="slabel mb-3">Working Hours</p>
           <p style="font-size:0.75rem; color:rgba(255,255,255,0.5);">Sat – Thu: 9:00 AM To 7:30 PM</p>
-          <p style="font-size:0.75rem; color:rgba(255,255,255,0.3);">Friday: Closed</p>
+          <p style="font-size:0.75rem; color:var(--fg-faint);">Friday: Closed</p>
         </div>
       </address>
     </div>
@@ -871,12 +938,12 @@
 
       <div>
         <h3 style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; margin-bottom:1rem;">Deepak Products</h3>
-        <p style="font-size:0.65rem; color:rgba(255,255,255,0.35); line-height:1.9;">
+        <p style="font-size:0.65rem; color:var(--fg-dim); line-height:1.9;">
           We strongly believe in maintaining perfection in quality and standards, which leads to achieve excellence in our profession. Sheet metal &amp; brass components manufacturer, Jamnagar, Gujarat.
         </p>
         <div class="mt-6">
           <p class="slabel mb-2">ISO Certified</p>
-          <p style="font-size:0.65rem; color:rgba(255,255,255,0.25);">9001:2015 · D-U-N-S® 65-081-4762</p>
+          <p style="font-size:0.65rem; color:var(--fg-faint);">9001:2015 · D-U-N-S® 65-081-4762</p>
         </div>
         <div class="mt-4">
           <p class="slabel mb-2">Quick Links</p>
@@ -925,11 +992,11 @@
         </nav>
         <div class="mt-8">
           <p class="slabel mb-3">Contact</p>
-          <p style="font-size:0.62rem; color:rgba(255,255,255,0.35); line-height:1.9;">
+          <p style="font-size:0.62rem; color:var(--fg-dim); line-height:1.9;">
             Plot No 4219, Road–F, G.I.D.C. Phase–III,<br/>
             Dared, Jamnagar–361 005, Gujarat, INDIA<br/>
-            <a href="tel:+919662713385" style="color:rgba(255,255,255,0.45);text-decoration:none;">+91 96627 13385</a><br/>
-            <a href="mailto:sales@deepakproducts.com" style="color:rgba(255,255,255,0.45);text-decoration:none;">sales@deepakproducts.com</a>
+            <a href="tel:+919662713385" style="color:var(--fg-dim);text-decoration:none;">+91 96627 13385</a><br/>
+            <a href="mailto:sales@deepakproducts.com" style="color:var(--fg-dim);text-decoration:none;">sales@deepakproducts.com</a>
           </p>
         </div>
       </div>
@@ -937,7 +1004,7 @@
     </div>
 
     <div class="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-white/8 pt-6">
-      <p style="font-size:0.55rem; color:rgba(255,255,255,0.25); letter-spacing:0.12em;">© Copyright 2026 By Deepak Products | All Rights Reserved.</p>
+      <p style="font-size:0.55rem; color:var(--fg-faint); letter-spacing:0.12em;">© Copyright 2026 By Deepak Products | All Rights Reserved.</p>
       <p style="font-size:0.55rem; color:rgba(255,255,255,0.15); letter-spacing:0.08em;">Created By : Web Space Technologies</p>
     </div>
 
@@ -1291,7 +1358,19 @@
       ctx.textAlign='left';ctx.fillStyle='rgba(255,255,255,0.25)';ctx.fillText('PROGRESS',x,y+h+4);
     }
   })();
-  </script>
+  
+  // ── Theme toggle ──────────────────────────────────────────────────────
+  (function(){
+    var h=document.documentElement;
+    document.querySelectorAll('#theme-toggle,#theme-toggle-mob').forEach(function(b){
+      b.addEventListener('click',function(){
+        var light=h.getAttribute('data-theme')!=='light';
+        h.setAttribute('data-theme',light?'light':'dark');
+        try{localStorage.setItem('dp-theme',light?'light':'dark');}catch(e){}
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>

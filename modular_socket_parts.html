@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script>try{if(localStorage.getItem('dp-theme')=='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}</script>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modular Socket Parts – 6A, 16A &amp; 6-13A Variants | Deepak Products</title>
   <meta name="description" content="Leading supplier of 6 AMP, 16 AMP & 6-13 AMP modular socket parts, PB socket pins, earth & live+neutral sets. Brass & copper. Jamnagar, India." />
@@ -44,25 +44,88 @@
     .nav-dd-link:hover{color:#fff;padding-left:0.4rem;}
     .rl{height:1px;background:var(--gc);}
     .slabel{font-size:0.55rem;letter-spacing:0.22em;color:var(--gc);text-transform:uppercase;}
-    .flink{font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;display:block;transition:color 0.3s ease;margin-bottom:0.4rem;}.flink:hover{color:#fff;}
+    .flink{font-size:0.7rem;color:var(--fg-dim);text-decoration:none;display:block;transition:color 0.3s ease;margin-bottom:0.4rem;}.flink:hover{color:#fff;}
     #mmenu{position:fixed;inset:0;background:#000;z-index:999;display:flex;flex-direction:column;justify-content:flex-end;padding:6vw 6vw 3rem;transform:translateX(100%);transition:transform 0.55s cubic-bezier(0.76,0,0.24,1);}#mmenu.open{transform:translateX(0);}
     #wa{position:fixed;bottom:2rem;right:2rem;z-index:500;width:3rem;height:3rem;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;box-shadow:0 4px 20px rgba(37,211,102,0.3);}#wa:hover{transform:scale(1.1);}
     .page-banner{padding-top:60px;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:2.5rem;padding-left:var(--gm);padding-right:var(--gm);border-bottom:1px solid rgba(255,255,255,0.07);position:relative;overflow:hidden;}
     .banner-grid{position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(90deg,rgba(74,171,61,0.03) 0,rgba(74,171,61,0.03) 1px,transparent 1px,transparent calc(100%/8));}
     .reveal{opacity:0;transform:translateY(24px);}
     .spec-row{display:flex;gap:1rem;border-bottom:1px solid rgba(255,255,255,0.07);padding:0.8rem 0;}
-    .spec-label{font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);min-width:6rem;flex-shrink:0;}
+    .spec-label{font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-faint);min-width:6rem;flex-shrink:0;}
     .spec-value{font-size:0.62rem;color:rgba(255,255,255,0.58);line-height:1.7;}
     .prod-img{border:1px solid rgba(255,255,255,0.07);overflow:hidden;}
     .prod-img img{width:100%;height:140px;object-fit:cover;display:block;filter:grayscale(20%);transition:filter 0.4s ease,transform 0.4s ease;}
     .prod-img:hover img{filter:grayscale(0%);transform:scale(1.04);}
-    .prod-label{font-size:0.45rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);padding:0.35rem 0.5rem;border-top:1px solid rgba(255,255,255,0.06);}
-    .sib-link{display:block;padding:0.55rem 0;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s ease,padding-left 0.2s ease;}
+    .prod-label{font-size:0.45rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-dim);padding:0.35rem 0.5rem;border-top:1px solid rgba(255,255,255,0.06);}
+    .sib-link{display:block;padding:0.55rem 0;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-dim);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s ease,padding-left 0.2s ease;}
     .sib-link:hover{color:#fff;padding-left:0.35rem;}
     .sib-link.active{color:var(--gc);}
     .sidebar-box{border:1px solid rgba(255,255,255,0.08);padding:1.5rem;margin-bottom:1.25rem;}
     .sinp{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:#fff;padding:0.6rem 0.8rem;font-size:0.58rem;font-family:'Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:0.06em;outline:none;transition:border-color 0.3s ease;margin-bottom:0.6rem;}
     .sinp:focus{border-color:var(--gc);}.sinp::placeholder{color:rgba(255,255,255,0.22);}
+  
+    /* ── Dark / Light mode ─────────────────────────────────────────────── */
+    :root {
+      --fg-dim: rgba(255,255,255,0.45); --fg-faint: rgba(255,255,255,0.25);
+      --border-sub: rgba(255,255,255,0.07); --border-dim: rgba(255,255,255,0.10);
+      --border-med: rgba(255,255,255,0.12);
+    }
+    html[data-theme="light"] {
+      --fg-dim: rgba(17,17,17,0.45); --fg-faint: rgba(17,17,17,0.25);
+      --border-sub: rgba(0,0,0,0.07); --border-dim: rgba(0,0,0,0.10);
+      --border-med: rgba(0,0,0,0.12);
+    }
+    html[data-theme="light"] body,
+    html[data-theme="light"] .bg-black { background-color: #F5F5F3 !important; }
+    html[data-theme="light"] { background: #F5F5F3; color: #111; }
+    html[data-theme="light"] #nav { background: rgba(245,245,243,0.92) !important; border-bottom-color: rgba(0,0,0,0.08) !important; }
+    html[data-theme="light"] .nl { color: rgba(0,0,0,0.55); }
+    html[data-theme="light"] .nl:hover { color: #111; }
+    html[data-theme="light"] .nav-dd { background: rgba(245,245,243,0.98); border-color: rgba(0,0,0,0.08); }
+    html[data-theme="light"] .nav-dd-link { color: rgba(0,0,0,0.42); }
+    html[data-theme="light"] .nav-dd-link:hover { color: #111; }
+    html[data-theme="light"] .nav-dd-section { border-top-color: rgba(0,0,0,0.06); }
+    html[data-theme="light"] #mmenu { background: #F5F5F3; }
+    html[data-theme="light"] #mline1,
+    html[data-theme="light"] #mline2 { background: #111; }
+    html[data-theme="light"] .hero-viz-frame::after { background: linear-gradient(to top,#F5F5F3 0%,rgba(245,245,243,0) 100%) !important; }
+    html[data-theme="light"] #preloader { background: #F5F5F3; }
+    html[data-theme="light"] #pre-label { color: rgba(0,0,0,0.3); }
+    html[data-theme="light"] #cur::before,
+    html[data-theme="light"] #cur::after { background: rgba(0,0,0,0.75); }
+    html[data-theme="light"] #cur-f { background: #111; }
+    html[data-theme="light"] .text-white { color: #111 !important; }
+    html[data-theme="light"] .text-white\/70 { color: rgba(17,17,17,0.7) !important; }
+    html[data-theme="light"] .border-white\/10 { border-color: rgba(0,0,0,0.10) !important; }
+    html[data-theme="light"] .border-white\/25 { border-color: rgba(0,0,0,0.25) !important; }
+    html[data-theme="light"] .border-white { border-color: rgba(0,0,0,0.80) !important; }
+    html[data-theme="light"] .bg-white\/10 { background-color: rgba(0,0,0,0.06) !important; }
+    html[data-theme="light"] .hover\:bg-white:hover { background-color: #111 !important; color: #F5F5F3 !important; }
+    html[data-theme="light"] .hover\:text-black:hover { color: #F5F5F3 !important; }
+    html[data-theme="light"] .vpill { border-color: rgba(0,0,0,0.12); }
+    html[data-theme="light"] .pstep { border-top-color: rgba(0,0,0,0.12); }
+    html[data-theme="light"] .flink { color: rgba(0,0,0,0.45); }
+    html[data-theme="light"] .flink:hover { color: #111; }
+    html[data-theme="light"] .slabel { color: var(--gc); }
+    /* Toggle button */
+    #theme-toggle, #theme-toggle-mob {
+      background: none; border: none; cursor: none;
+      padding: 2px; display: flex; align-items: center;
+      color: inherit; opacity: 0.55; transition: opacity 0.3s ease;
+    }
+    #theme-toggle:hover, #theme-toggle-mob:hover { opacity: 1; }
+    #theme-toggle .t-sun, #theme-toggle-mob .t-sun { display: none; }
+    #theme-toggle .t-moon, #theme-toggle-mob .t-moon { display: block; }
+    html[data-theme="light"] #theme-toggle .t-sun,
+    html[data-theme="light"] #theme-toggle-mob .t-sun { display: block; }
+    html[data-theme="light"] #theme-toggle .t-moon,
+    html[data-theme="light"] #theme-toggle-mob .t-moon { display: none; }
+    /* Mobile theme row */
+    #theme-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.85rem 0 0; margin-top: 0.85rem;
+      border-top: 1px solid var(--border-dim);
+    }
   </style>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="preconnect" href="https://unpkg.com" crossorigin />
@@ -82,16 +145,20 @@
     </div>
     <a href="quality.html" class="nl">Quality</a><a href="infrastructure.html" class="nl">Infrastructure</a><a href="contact_us.html" class="nl">Contact Us</a>
   </div>
-  <div class="hidden lg:flex items-center gap-6"><span id="navtime" class="nl" style="color:rgba(255,255,255,0.25);">IST 00:00</span><a href="contact_us.html#contact-form" class="text-xs tracking-widest uppercase border border-white/25 px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300" style="letter-spacing:0.14em;">Get Quote</a></div>
+  <div class="hidden lg:flex items-center gap-6"><span id="navtime" class="nl" style="color:var(--fg-faint);">IST 00:00</span>
+      <button id="theme-toggle" aria-label="Toggle light / dark theme"><svg class="t-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg><svg class="t-sun"  width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+      <a href="contact_us.html#contact-form" class="text-xs tracking-widest uppercase border border-white/25 px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300" style="letter-spacing:0.14em;">Get Quote</a></div>
   <button id="mbtn" class="lg:hidden flex flex-col gap-[5px]" aria-label="Open menu"><span class="w-6 h-px bg-white block" id="mline1"></span><span class="w-4 h-px bg-white block" id="mline2"></span></button>
 </nav>
-<div id="mmenu"><div class="space-y-5 mb-12"><a href="index.html" class="block text-4xl font-light mm-link">Home</a><a href="about_us.html" class="block text-4xl font-light mm-link">About Us</a><a href="products.html" class="block text-4xl font-light mm-link">Products</a><a href="quality.html" class="block text-4xl font-light mm-link">Quality</a><a href="infrastructure.html" class="block text-4xl font-light mm-link">Infrastructure</a><a href="contact_us.html" class="block text-4xl font-light mm-link">Contact Us</a></div><div class="border-t border-white/10 pt-6 flex justify-between items-end"><div><p class="slabel mb-2">Phone</p><a href="tel:+919662713385" class="text-sm text-white/70">+91 96627 13385</a></div><div class="text-right"><p class="slabel mb-2">Email</p><a href="mailto:sales@deepakproducts.com" class="text-sm text-white/70">sales@deepakproducts.com</a></div></div></div>
+<div id="mmenu"><div class="space-y-5 mb-12"><a href="index.html" class="block text-4xl font-light mm-link">Home</a><a href="about_us.html" class="block text-4xl font-light mm-link">About Us</a><a href="products.html" class="block text-4xl font-light mm-link">Products</a><a href="quality.html" class="block text-4xl font-light mm-link">Quality</a><a href="infrastructure.html" class="block text-4xl font-light mm-link">Infrastructure</a><a href="contact_us.html" class="block text-4xl font-light mm-link">Contact Us</a></div>
+  <div id="theme-row"><span class="slabel">Theme</span><button id="theme-toggle-mob" aria-label="Toggle light / dark theme"><svg class="t-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg><svg class="t-sun"  width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div>
+  <div class="border-t border-white/10 pt-6 flex justify-between items-end"><div><p class="slabel mb-2">Phone</p><a href="tel:+919662713385" class="text-sm text-white/70">+91 96627 13385</a></div><div class="text-right"><p class="slabel mb-2">Email</p><a href="mailto:sales@deepakproducts.com" class="text-sm text-white/70">sales@deepakproducts.com</a></div></div></div>
 
 <header class="page-banner">
   <div class="banner-grid" aria-hidden="true"></div>
   <div style="position:relative;z-index:1;">
     <nav aria-label="Breadcrumb" class="mb-5"><ol style="display:flex;align-items:center;gap:0.5rem;list-style:none;flex-wrap:wrap;"><li><a href="index.html" class="slabel hover:text-white transition-colors">Home</a></li><li style="color:rgba(255,255,255,0.2);font-size:0.55rem;">→</li><li><a href="products.html" class="slabel hover:text-white transition-colors">Products</a></li><li style="color:rgba(255,255,255,0.2);font-size:0.55rem;">→</li><li><a href="modular_socket_switch_parts.html" class="slabel hover:text-white transition-colors">Modular</a></li><li style="color:rgba(255,255,255,0.2);font-size:0.55rem;">→</li><li><span class="slabel" style="color:rgba(255,255,255,0.5);">Modular Socket Parts</span></li></ol></nav>
-    <h1 style="font-size:clamp(1.2rem,2.8vw,2.8rem);font-weight:300;line-height:0.95;letter-spacing:-0.025em;" class="reveal">Modular Socket Parts<br/><span style="color:rgba(255,255,255,0.35);">Manufacturer in Jamnagar</span></h1>
+    <h1 style="font-size:clamp(1.2rem,2.8vw,2.8rem);font-weight:300;line-height:0.95;letter-spacing:-0.025em;" class="reveal">Modular Socket Parts<br/><span style="color:var(--fg-dim);">Manufacturer in Jamnagar</span></h1>
   </div>
 </header>
 
@@ -159,7 +226,7 @@
         </div>
         <div class="sidebar-box reveal">
           <p class="slabel mb-3">Company Catalogue</p>
-          <p style="font-size:0.6rem;color:rgba(255,255,255,0.35);margin-bottom:1rem;line-height:1.7;">Get the latest Deepak Products catalogue with full product range.</p>
+          <p style="font-size:0.6rem;color:var(--fg-dim);margin-bottom:1rem;line-height:1.7;">Get the latest Deepak Products catalogue with full product range.</p>
           <a href="contact_us.html" class="block text-center text-xs tracking-widest uppercase border border-white/20 py-4 hover:border-brand hover:text-brand transition-colors duration-300" style="letter-spacing:0.12em;">Download Now →</a>
         </div>
         <div class="sidebar-box reveal">
@@ -191,13 +258,13 @@
 
 <footer class="px-[2vw] pt-10 pb-6 border-t border-white/10">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
-    <div><h3 style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;margin-bottom:1rem;">Deepak Products</h3><p style="font-size:0.65rem;color:rgba(255,255,255,0.35);line-height:1.9;">Sheet metal &amp; brass components manufacturer, Jamnagar, Gujarat. Est. 1985.</p><div class="mt-4"><p class="slabel mb-2">Quick Links</p><nav aria-label="Footer quick links"><a href="about_us.html" class="flink">About Us</a><a href="quality.html" class="flink">Quality</a><a href="infrastructure.html" class="flink">Infrastructure</a><a href="contact_us.html" class="flink">Contact Us</a></nav></div></div>
+    <div><h3 style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;margin-bottom:1rem;">Deepak Products</h3><p style="font-size:0.65rem;color:var(--fg-dim);line-height:1.9;">Sheet metal &amp; brass components manufacturer, Jamnagar, Gujarat. Est. 1985.</p><div class="mt-4"><p class="slabel mb-2">Quick Links</p><nav aria-label="Footer quick links"><a href="about_us.html" class="flink">About Us</a><a href="quality.html" class="flink">Quality</a><a href="infrastructure.html" class="flink">Infrastructure</a><a href="contact_us.html" class="flink">Contact Us</a></nav></div></div>
     <div><p class="slabel mb-4">Sheet Metal</p><nav aria-label="Sheet metal"><a href="sheet_metal_components.html" class="flink">Sheet Metal Components</a><a href="mcb_parts.html" class="flink">MCB Parts</a><a href="brass_electrical_components.html" class="flink">Brass Electrical Components</a><a href="mortise_lock_parts.html" class="flink">Mortise Lock Parts</a><a href="deep_draw_products.html" class="flink">Deep Draw Products</a><a href="brass_and_ms_washers.html" class="flink">Brass &amp; MS Washers</a><a href="brass_fuse_components.html" class="flink">Brass Fuse Components</a></nav></div>
     <div><p class="slabel mb-4">Modular Socket / Switch</p><nav aria-label="Modular"><a href="modular_socket_switch_parts.html" class="flink">Modular Socket / Switch Parts</a><a href="modular_socket_parts.html" class="flink">Modular Socket Parts</a><a href="modular_switch_parts.html" class="flink">Modular Switch Parts</a><a href="modular_pins.html" class="flink">Modular Pins</a><a href="brass_terminals.html" class="flink">Brass Terminals</a></nav></div>
-    <div><p class="slabel mb-4">Other Products</p><nav aria-label="Other"><a href="crimping_lugs.html" class="flink">Crimping Lugs</a><a href="brass_earth_tag.html" class="flink">Brass Earth Tag</a><a href="brass_turned_components.html" class="flink">Brass Turned Components</a><a href="brass_hex_nuts_and_bolts.html" class="flink">Brass Hex Nuts &amp; Bolts</a><a href="brass_moulding_inserts.html" class="flink">Brass Moulding Inserts</a><a href="customized_components.html" class="flink">Customized Components</a></nav><div class="mt-6"><p class="slabel mb-3">Contact</p><address style="font-size:0.62rem;color:rgba(255,255,255,0.35);line-height:1.9;font-style:normal;">Plot No 4219, Road–F, G.I.D.C. Phase–III,<br/>Dared, Jamnagar–361 005, Gujarat, INDIA<br/><a href="tel:+919662713385" style="color:rgba(255,255,255,0.45);text-decoration:none;">+91 96627 13385</a><br/><a href="mailto:sales@deepakproducts.com" style="color:rgba(255,255,255,0.45);text-decoration:none;">sales@deepakproducts.com</a></address></div></div>
+    <div><p class="slabel mb-4">Other Products</p><nav aria-label="Other"><a href="crimping_lugs.html" class="flink">Crimping Lugs</a><a href="brass_earth_tag.html" class="flink">Brass Earth Tag</a><a href="brass_turned_components.html" class="flink">Brass Turned Components</a><a href="brass_hex_nuts_and_bolts.html" class="flink">Brass Hex Nuts &amp; Bolts</a><a href="brass_moulding_inserts.html" class="flink">Brass Moulding Inserts</a><a href="customized_components.html" class="flink">Customized Components</a></nav><div class="mt-6"><p class="slabel mb-3">Contact</p><address style="font-size:0.62rem;color:var(--fg-dim);line-height:1.9;font-style:normal;">Plot No 4219, Road–F, G.I.D.C. Phase–III,<br/>Dared, Jamnagar–361 005, Gujarat, INDIA<br/><a href="tel:+919662713385" style="color:var(--fg-dim);text-decoration:none;">+91 96627 13385</a><br/><a href="mailto:sales@deepakproducts.com" style="color:var(--fg-dim);text-decoration:none;">sales@deepakproducts.com</a></address></div></div>
   </div>
   <div class="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-white/8 pt-6">
-    <p style="font-size:0.55rem;color:rgba(255,255,255,0.25);letter-spacing:0.12em;">© Copyright 2026 By Deepak Products | All Rights Reserved.</p>
+    <p style="font-size:0.55rem;color:var(--fg-faint);letter-spacing:0.12em;">© Copyright 2026 By Deepak Products | All Rights Reserved.</p>
     <p style="font-size:0.55rem;color:rgba(255,255,255,0.15);letter-spacing:0.08em;">Created By : Web Space Technologies</p>
   </div>
 </footer>
@@ -223,6 +290,18 @@
   document.querySelectorAll('.reveal').forEach(el=>{gsap.set(el,{opacity:0,y:28});ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:()=>gsap.to(el,{opacity:1,y:0,duration:0.85,ease:'power3.out'})});});
   gsap.set('.page-banner h1',{opacity:0,y:30});gsap.to('.page-banner h1',{opacity:1,y:0,duration:1.0,ease:'power3.out',delay:0.15});
 })();
+
+  // ── Theme toggle ──────────────────────────────────────────────────────
+  (function(){
+    var h=document.documentElement;
+    document.querySelectorAll('#theme-toggle,#theme-toggle-mob').forEach(function(b){
+      b.addEventListener('click',function(){
+        var light=h.getAttribute('data-theme')!=='light';
+        h.setAttribute('data-theme',light?'light':'dark');
+        try{localStorage.setItem('dp-theme',light?'light':'dark');}catch(e){}
+      });
+    });
+  })();
 </script>
 </body>
 </html>
