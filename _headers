@@ -1,0 +1,22 @@
+# HTML: always revalidate (fresh content on every deploy)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+
+# Image assets: immutable (hashed filenames assumed)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# SVG logos
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# SEO files
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400
