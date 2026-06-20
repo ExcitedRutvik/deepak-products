@@ -1,10 +1,16 @@
-# HTML: always revalidate (fresh content on every deploy)
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
+# Security headers — apply to EVERY route, including Cloudflare's clean URLs
+# (/, /about_us, /products) which don't end in .html and so wouldn't match a
+# /*.html rule.
+/*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+
+# HTML: always revalidate (fresh content on every deploy). Matches direct
+# .html hits; clean URLs already receive this as the Cloudflare Pages default.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
 
 # Image assets: immutable (hashed filenames assumed)
 /assets/*
